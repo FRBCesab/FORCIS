@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">forcis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/forcis.html">Get started</a>
 </li>
@@ -52,7 +48,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/FRBCesab/forcis/">
+  <a href="https://github.com/FRBCesab/forcis/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -73,53 +69,53 @@
       <h1 data-toc-skip>Get started</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/master/vignettes/forcis.Rmd"><code>vignettes/forcis.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/HEAD/vignettes/forcis.Rmd" class="external-link"><code>vignettes/forcis.Rmd</code></a></small>
       <div class="hidden name"><code>forcis.Rmd</code></div>
 
     </div>
 
     
     
-<div id="title-1" class="section level1">
-<h1 class="hasAnchor">
-<a href="#title-1" class="anchor"></a>Title 1</h1>
+<div class="section level2">
+<h2 id="title-1">Title 1<a class="anchor" aria-label="anchor" href="#title-1"></a>
+</h2>
 <p>Paragraph</p>
 <p>Second paragraph with <em>italic</em>, <strong>bold</strong>, and <code>code</code>.</p>
-<p>Document produced on 2021-11-19</p>
-<p><a href="https://google.fr">Google</a></p>
-<p><img src="../man/figures/hexsticker.png"></p>
-<div id="title-2" class="section level2">
-<h2 class="hasAnchor">
-<a href="#title-2" class="anchor"></a>Title 2</h2>
-<div id="title-3" class="section level3">
-<h3 class="hasAnchor">
-<a href="#title-3" class="anchor"></a>Title 3</h3>
+<p>Document produced on 2022-05-23</p>
+<p><a href="https://google.fr" class="external-link">Google</a></p>
+<p><img src="../reference/figures/hexsticker.png"></p>
+<div class="section level3">
+<h3 id="title-2">Title 2<a class="anchor" aria-label="anchor" href="#title-2"></a>
+</h3>
+<div class="section level4">
+<h4 id="title-3">Title 3<a class="anchor" aria-label="anchor" href="#title-3"></a>
+</h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load package</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/FRBCesab/forcis">forcis</a></span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/FRBCesab/forcis" class="external-link">forcis</a></span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">## Define filename path ----</span>
-<span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_dataset.csv"</span>, package <span class="op">=</span> <span class="st">"forcis"</span><span class="op">)</span>
+<span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_dataset.csv"</span>, package <span class="op">=</span> <span class="st">"forcis"</span><span class="op">)</span>
 
 <span class="co">## Read CSV file ----</span>
-<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">file_path</span><span class="op">)</span>
-<span class="co">#&gt; Rows: 1358 Columns: 274</span>
-<span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span>
-<span class="co">#&gt; Delimiter: ","</span>
-<span class="co">#&gt; chr   (20): cruise_id, site_id, new_station_id, station_id, profile_id, cast...</span>
-<span class="co">#&gt; dbl   (50): profile_depth_min, profile_depth_max, site_lon_start_decimal, si...</span>
-<span class="co">#&gt; lgl  (201): sample_include_in_profile, cruise_description, site_lon_end_deci...</span>
-<span class="co">#&gt; dttm   (2): sample_date_time_start, tstamp_modified</span>
-<span class="co">#&gt; date   (1): profile_date_time</span>
+<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">file_path</span><span class="op">)</span>
+<span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">1358</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">274</span></span>
+<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
+<span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span>
+<span class="co">#&gt; <span style="color: #BB0000;">chr</span>   (20): cruise_id, site_id, new_station_id, station_id, profile_id, cast...</span>
+<span class="co">#&gt; <span style="color: #00BB00;">dbl</span>   (50): profile_depth_min, profile_depth_max, site_lon_start_decimal, si...</span>
+<span class="co">#&gt; <span style="color: #BBBB00;">lgl</span>  (201): sample_include_in_profile, cruise_description, site_lon_end_deci...</span>
+<span class="co">#&gt; <span style="color: #0000BB;">dttm</span>   (2): sample_date_time_start, tstamp_modified</span>
+<span class="co">#&gt; <span style="color: #0000BB;">date</span>   (1): profile_date_time</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span>
-<span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span>
+<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
 
 <span class="co">## Explore dataset ----</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1358  274</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>
 <span class="co">#&gt;   [1] "cruise_id"                                </span>
 <span class="co">#&gt;   [2] "site_id"                                  </span>
 <span class="co">#&gt;   [3] "new_station_id"                           </span>
@@ -410,11 +406,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Nicolas Casajus.</p>
+  <p></p>
+<p>Developed by Nicolas Casajus.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -422,6 +420,8 @@
 
   
 
+
+  
 
   </body>
 </html>
