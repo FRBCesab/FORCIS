@@ -81,7 +81,7 @@
 </h2>
 <p>Paragraph</p>
 <p>Second paragraph with <em>italic</em>, <strong>bold</strong>, and <code>code</code>.</p>
-<p>Document produced on 2022-05-23</p>
+<p>Document produced on 2022-05-24</p>
 <p><a href="https://google.fr" class="external-link">Google</a></p>
 <p><img src="../reference/figures/hexsticker.png"></p>
 <div class="section level3">
@@ -98,18 +98,7 @@
 <span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_dataset.csv"</span>, package <span class="op">=</span> <span class="st">"forcis"</span><span class="op">)</span>
 
 <span class="co">## Read CSV file ----</span>
-<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">file_path</span><span class="op">)</span>
-<span class="co">#&gt; <span style="font-weight: bold;">Rows: </span><span style="color: #0000BB;">1358</span> <span style="font-weight: bold;">Columns: </span><span style="color: #0000BB;">274</span></span>
-<span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
-<span class="co">#&gt; <span style="font-weight: bold;">Delimiter:</span> ","</span>
-<span class="co">#&gt; <span style="color: #BB0000;">chr</span>   (20): cruise_id, site_id, new_station_id, station_id, profile_id, cast...</span>
-<span class="co">#&gt; <span style="color: #00BB00;">dbl</span>   (50): profile_depth_min, profile_depth_max, site_lon_start_decimal, si...</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">lgl</span>  (201): sample_include_in_profile, cruise_description, site_lon_end_deci...</span>
-<span class="co">#&gt; <span style="color: #0000BB;">dttm</span>   (2): sample_date_time_start, tstamp_modified</span>
-<span class="co">#&gt; <span style="color: #0000BB;">date</span>   (1): profile_date_time</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Use `spec()` to retrieve the full column specification for this data.</span>
-<span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span>
+<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">file_path</span><span class="op">)</span>
 
 <span class="co">## Explore dataset ----</span>
 <span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>
