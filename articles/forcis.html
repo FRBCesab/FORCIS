@@ -77,34 +77,22 @@
     
     
 <div class="section level2">
-<h2 id="title-1">Title 1<a class="anchor" aria-label="anchor" href="#title-1"></a>
+<h2 id="getting-plankton-net-data">Getting Plankton net data<a class="anchor" aria-label="anchor" href="#getting-plankton-net-data"></a>
 </h2>
-<p>Paragraph</p>
-<p>Second paragraph with <em>italic</em>, <strong>bold</strong>, and <code>code</code>.</p>
-<p>Document produced on 2022-05-24</p>
-<p><a href="https://google.fr" class="external-link">Google</a></p>
-<p><img src="../reference/figures/hexsticker.png"></p>
-<div class="section level3">
-<h3 id="title-2">Title 2<a class="anchor" aria-label="anchor" href="#title-2"></a>
-</h3>
-<div class="section level4">
-<h4 id="title-3">Title 3<a class="anchor" aria-label="anchor" href="#title-3"></a>
-</h4>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load package</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frbcesab.github.io/forcis" class="external-link">forcis</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frbcesab.github.io/forcis" class="external-link">forcis</a></span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">## Define filename path ----</span>
-<span class="va">file_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"example_dataset.csv"</span>, package <span class="op">=</span> <span class="st">"forcis"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="co">## Define the path to store data ----</span>
+<span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="co">## Read CSV file ----</span>
-<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">file_path</span><span class="op">)</span>
+<span class="co">## Download and import data ----</span>
+<span class="va">nets</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_plankton_nets_data.html">get_plankton_nets_data</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span>
 
 <span class="co">## Explore dataset ----</span>
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>
-<span class="co">#&gt; [1] 1358  274</span>
+<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">nets</span><span class="op">)</span>
+<span class="co">#&gt; [1] 5137  281</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">nets</span><span class="op">)</span>
 <span class="co">#&gt;   [1] "cruise_id"                                </span>
 <span class="co">#&gt;   [2] "site_id"                                  </span>
 <span class="co">#&gt;   [3] "new_station_id"                           </span>
@@ -183,9 +171,9 @@
 <span class="co">#&gt;  [76] "subsample_all_shells_present_were_counted"</span>
 <span class="co">#&gt;  [77] "subsample_absolute_abundance_available"   </span>
 <span class="co">#&gt;  [78] "subsample_note"                           </span>
-<span class="co">#&gt;  [79] "reworked_planktic_foraminifera"           </span>
-<span class="co">#&gt;  [80] "unidentified_specimens"                   </span>
-<span class="co">#&gt;  [81] "benthics"                                 </span>
+<span class="co">#&gt;  [79] "benthics"                                 </span>
+<span class="co">#&gt;  [80] "reworked_planktic_foraminifera"           </span>
+<span class="co">#&gt;  [81] "unidentified_specimens"                   </span>
 <span class="co">#&gt;  [82] "other"                                    </span>
 <span class="co">#&gt;  [83] "pachyderma_incompta"                      </span>
 <span class="co">#&gt;  [84] "riedeli"                                  </span>
@@ -378,9 +366,14 @@
 <span class="co">#&gt; [271] "g_ca"                                     </span>
 <span class="co">#&gt; [272] "conglomerata_and_hexagona"                </span>
 <span class="co">#&gt; [273] "t_sacculifer_sac"                         </span>
-<span class="co">#&gt; [274] "adamsi"</span></code></pre></div>
-</div>
-</div>
+<span class="co">#&gt; [274] "adamsi"                                   </span>
+<span class="co">#&gt; [275] "n_pachyderma"                             </span>
+<span class="co">#&gt; [276] "g_ruber_.albus_or_.elongatus"             </span>
+<span class="co">#&gt; [277] "calculated_abundance"                     </span>
+<span class="co">#&gt; [278] "forams_per_m3"                            </span>
+<span class="co">#&gt; [279] "number_of_forams_per_1000m3"              </span>
+<span class="co">#&gt; [280] "number_of_species_counted"                </span>
+<span class="co">#&gt; [281] "total_of_forams_counted_ind"</span></code></pre></div>
 </div>
   </div>
 
