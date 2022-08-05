@@ -53,7 +53,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_forcis_db</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"."</span>, version <span class="op">=</span> <span class="fu">forcis_db_version</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_forcis_db</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"."</span>, version <span class="op">=</span> <span class="fu">forcis_db_version</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -61,21 +61,29 @@
     <dl><dt>path</dt>
 <dd><p>a character. The folder in which the FORCIS database will be
 saved.</p></dd>
+
+
 <dt>version</dt>
 <dd><p>a character. The version number of the database.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>No return value. The five <code>csv</code> files will be saved in the <code>path</code>folder.</p>
+    
+
+<p>No return value. The five <code>csv</code> files will be saved in the <code>path</code></p>
+
+
+<p>folder.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">path_to_save_csv</span> <span class="op">&lt;-</span> <span class="st">"data"</span></span>
-<span class="r-in"><span class="fu">forcis</span><span class="fu">::</span><span class="fu">get_forcis_db</span><span class="op">(</span><span class="va">path_to_save_csv</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">path_to_save_csv</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">path_to_save_csv</span> <span class="op">&lt;-</span> <span class="st">"data"</span></span></span>
+<span class="r-in"><span><span class="fu">forcis</span><span class="fu">::</span><span class="fu">get_forcis_db</span><span class="op">(</span><span class="va">path_to_save_csv</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">path_to_save_csv</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -90,7 +98,7 @@ saved.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
