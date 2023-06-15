@@ -53,7 +53,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compute_concentrations</span><span class="op">(</span><span class="va">df</span>, aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">compute_concentrations</span><span class="op">(</span><span class="va">df</span>, cols <span class="op">=</span> <span class="cn">NULL</span>, aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -62,9 +62,13 @@
 <dd><p>forcis net dataset</p></dd>
 
 
-<dt>aggregate</dt>
-<dd><p>logical, if FALSE counts will be derived for each subsample.
+<dt>cols</dt>
+<dd><p>character, if NULL only required_columns will be included
 If TRUE subsample counts will be aggregated by sample_id.</p></dd>
+
+
+<dt>aggregate</dt>
+<dd><p>logical, if FALSE counts will be derived for each subsample.</p></dd>
 
 </dl></div>
     <div id="value">
