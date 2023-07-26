@@ -85,10 +85,9 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define the path to store data ----</span></span>
 <span><span class="va">path</span>       <span class="op">&lt;-</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">db_version</span> <span class="op">&lt;-</span> <span class="st">"v01_02122022"</span></span>
 <span></span>
-<span><span class="co"># Download FORCIS database (from Zenodo) ----</span></span>
-<span><span class="fu"><a href="../reference/get_forcis_db.html">get_forcis_db</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">path</span>, version <span class="op">=</span> <span class="va">db_version</span><span class="op">)</span></span>
+<span><span class="co"># Download the latest version of FORCIS database (from Zenodo) ----</span></span>
+<span><span class="fu"><a href="../reference/get_forcis_db.html">get_forcis_db</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Import net data ----</span></span>
 <span><span class="va">nets</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_data.html">get_plankton_nets_data</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
