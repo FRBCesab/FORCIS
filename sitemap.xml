@@ -22,6 +22,18 @@
     <loc>/reference/computations.html</loc>
   </url>
   <url>
+    <loc>/reference/filter_by_coordinates.html</loc>
+  </url>
+  <url>
+    <loc>/reference/filter_by_month.html</loc>
+  </url>
+  <url>
+    <loc>/reference/filter_by_species.html</loc>
+  </url>
+  <url>
+    <loc>/reference/filter_by_year.html</loc>
+  </url>
+  <url>
     <loc>/reference/forcis-package.html</loc>
   </url>
   <url>
@@ -38,6 +50,9 @@
   </url>
   <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/reshape_forcis.html</loc>
   </url>
   <url>
     <loc>/reference/select_columns.html</loc>
