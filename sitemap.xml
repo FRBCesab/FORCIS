@@ -60,4 +60,10 @@
   <url>
     <loc>/reference/select_taxonomy.html</loc>
   </url>
+  <url>
+    <loc>/reference/zen_get_version_info.html</loc>
+  </url>
+  <url>
+    <loc>/reference/zen_list_versions.html</loc>
+  </url>
 </urlset>

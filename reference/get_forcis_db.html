@@ -55,19 +55,15 @@ Zenodo (<a href="https://zenodo.org/record/7936568" class="external-link">https:
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_forcis_db</span><span class="op">(</span></span>
-<span>  path <span class="op">=</span> <span class="st">"."</span>,</span>
-<span>  version <span class="op">=</span> <span class="fu">forcis_db_version</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  timeout <span class="op">=</span> <span class="fl">60</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_forcis_db</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"."</span>, version <span class="op">=</span> <span class="cn">NULL</span>, overwrite <span class="op">=</span> <span class="cn">FALSE</span>, timeout <span class="op">=</span> <span class="fl">60</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>path</dt>
 <dd><p>a <code>character</code> of length 1. The folder in which the FORCIS
-database will be saved.</p></dd>
+database will be saved. Note that a subdirectory will be created in the
+version number.</p></dd>
 
 
 <dt>version</dt>
@@ -89,16 +85,7 @@ FORCIS database. Default is <code>60</code>.</p></dd>
     <h2>Value</h2>
     
 
-<p>No return value. The five <code>csv</code> files will be saved in the <code>path</code></p>
-
-
-<p>folder.</p>
-    </div>
-    <div id="details">
-    <h2>Details</h2>
-    <p>If user is interested in only one type of data (e.g. plankton nets), the
-function <code><a href="get_data.html">get_plankton_nets_data()</a></code> (and others) is a better choice as it
-will download only one <code>csv</code> file.</p>
+<p>No return value. The FORCIS files will be saved in the <code>path</code> folder.</p>
     </div>
 
     <div id="ref-examples">
@@ -111,7 +98,7 @@ will download only one <code>csv</code> file.</p>
 <span class="r-in"><span><span class="fu">forcis</span><span class="fu">::</span><span class="fu">get_forcis_db</span><span class="op">(</span>path <span class="op">=</span> <span class="va">path_to_save_db</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Check the content of the folder ----</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">path_to_save_db</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">path_to_save_db</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
