@@ -53,7 +53,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">filter_by_species</span><span class="op">(</span><span class="va">data</span>, <span class="va">species</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">filter_by_species</span><span class="op">(</span><span class="va">data</span>, <span class="va">species</span>, remove_NAs <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -64,6 +64,10 @@
 
 <dt>species</dt>
 <dd><p>a character vector listing species of interest</p></dd>
+
+
+<dt>remove_NAs</dt>
+<dd><p>logical, If FALSE, retains all taxa including those with NA counts</p></dd>
 
 </dl></div>
     <div id="value">
