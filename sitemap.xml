@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://frbcesab.github.io/forcis/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://frbcesab.github.io/forcis/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/articles/forcis.html</loc>
+    <loc>https://frbcesab.github.io/forcis/articles/forcis.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://frbcesab.github.io/forcis/articles/index.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://frbcesab.github.io/forcis/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://frbcesab.github.io/forcis/index.html</loc>
   </url>
   <url>
-    <loc>/reference/computations.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/computations.html</loc>
   </url>
   <url>
-    <loc>/reference/filter_by_coordinates.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/filter_by_coordinates.html</loc>
   </url>
   <url>
-    <loc>/reference/filter_by_month.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/filter_by_month.html</loc>
   </url>
   <url>
-    <loc>/reference/filter_by_species.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/filter_by_species.html</loc>
   </url>
   <url>
-    <loc>/reference/filter_by_year.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/filter_by_year.html</loc>
   </url>
   <url>
-    <loc>/reference/forcis-package.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/forcis-package.html</loc>
   </url>
   <url>
-    <loc>/reference/get_data.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/get_data.html</loc>
   </url>
   <url>
-    <loc>/reference/get_forcis_db.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/get_forcis_db.html</loc>
   </url>
   <url>
-    <loc>/reference/get_required_columns.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/get_required_columns.html</loc>
   </url>
   <url>
-    <loc>/reference/get_species_names.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/get_species_names.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/reshape_forcis.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/reshape_forcis.html</loc>
   </url>
   <url>
-    <loc>/reference/select_columns.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/select_columns.html</loc>
   </url>
   <url>
-    <loc>/reference/select_taxonomy.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/select_taxonomy.html</loc>
   </url>
   <url>
-    <loc>/reference/zen_get_version_info.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/zen_get_version_info.html</loc>
   </url>
   <url>
-    <loc>/reference/zen_list_versions.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/zen_list_versions.html</loc>
   </url>
 </urlset>
