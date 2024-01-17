@@ -4,6 +4,12 @@
     <loc>https://frbcesab.github.io/forcis/404.html</loc>
   </url>
   <url>
+    <loc>https://frbcesab.github.io/forcis/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/forcis/CONTRIBUTING.html</loc>
+  </url>
+  <url>
     <loc>https://frbcesab.github.io/forcis/LICENSE.html</loc>
   </url>
   <url>
@@ -17,6 +23,9 @@
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/index.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/forcis/news/index.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/computations.html</loc>
