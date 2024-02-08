@@ -63,19 +63,39 @@ it will be downloaded from Zenodo (<a href="https://zenodo.org/record/7936568" c
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_plankton_nets_data</span><span class="op">(</span></span>
 <span>  path <span class="op">=</span> <span class="st">"."</span>,</span>
 <span>  version <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  check_for_update <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  timeout <span class="op">=</span> <span class="fl">60</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_pump_data</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"."</span>, version <span class="op">=</span> <span class="cn">NULL</span>, overwrite <span class="op">=</span> <span class="cn">FALSE</span>, timeout <span class="op">=</span> <span class="fl">60</span><span class="op">)</span></span>
+<span><span class="fu">get_pump_data</span><span class="op">(</span></span>
+<span>  path <span class="op">=</span> <span class="st">"."</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  check_for_update <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  timeout <span class="op">=</span> <span class="fl">60</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_cpr_north_data</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"."</span>, version <span class="op">=</span> <span class="cn">NULL</span>, overwrite <span class="op">=</span> <span class="cn">FALSE</span>, timeout <span class="op">=</span> <span class="fl">60</span><span class="op">)</span></span>
+<span><span class="fu">get_cpr_north_data</span><span class="op">(</span></span>
+<span>  path <span class="op">=</span> <span class="st">"."</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  check_for_update <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  timeout <span class="op">=</span> <span class="fl">60</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_cpr_south_data</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"."</span>, version <span class="op">=</span> <span class="cn">NULL</span>, overwrite <span class="op">=</span> <span class="cn">FALSE</span>, timeout <span class="op">=</span> <span class="fl">60</span><span class="op">)</span></span>
+<span><span class="fu">get_cpr_south_data</span><span class="op">(</span></span>
+<span>  path <span class="op">=</span> <span class="st">"."</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  check_for_update <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  timeout <span class="op">=</span> <span class="fl">60</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">get_sediment_trap_data</span><span class="op">(</span></span>
 <span>  path <span class="op">=</span> <span class="st">"."</span>,</span>
 <span>  version <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  check_for_update <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  timeout <span class="op">=</span> <span class="fl">60</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -91,6 +111,12 @@ database has been (or will be) saved.</p></dd>
 <dt>version</dt>
 <dd><p>a <code>character</code> of length 1. The version number of the
 FORCIS database. Default is the latest version.</p></dd>
+
+
+<dt>check_for_update</dt>
+<dd><p>a <code>logical</code>. If <code>TRUE</code> (default) it will check if a
+newer version of the FORCIS database is available on Zenodo and ask user
+to download it.</p></dd>
 
 
 <dt>overwrite</dt>
