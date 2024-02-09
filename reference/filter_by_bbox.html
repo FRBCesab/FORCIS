@@ -54,7 +54,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">filter_by_bbox</span><span class="op">(</span><span class="va">data</span>, <span class="va">coord_square</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">filter_by_bbox</span><span class="op">(</span><span class="va">data</span>, <span class="va">bbox</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -63,10 +63,13 @@
 <dd><p>a <code>data.frame</code>, i.e. a FORCIS dataset.</p></dd>
 
 
-<dt>coord_square</dt>
-<dd><p>a vector of four <code>numeric</code> values defining a square
-bounding box. Values must follow this order: minimum latitude, minimum
-longitude, maximum latitude, and maximum longitude.</p></dd>
+<dt>bbox</dt>
+<dd><p>an object of class <code>bbox</code> (package <code>sf</code>) or a vector of four
+<code>numeric</code> values defining a square bounding box. Values must follow this
+order: minimum longitude (<code>xmin</code>), minimum latitude (<code>ymin</code>), maximum
+longitude (<code>xmax</code>), and maximum latitude (<code>ymax</code>).
+<strong>Important:</strong> if a vector of numeric values is provided, coordinates must
+be defined in the system WGS 84 (<code>epsg=4326</code>).</p></dd>
 
 </dl></div>
     <div class="section level2">
