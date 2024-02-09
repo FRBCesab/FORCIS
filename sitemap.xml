@@ -37,6 +37,9 @@
     <loc>https://frbcesab.github.io/forcis/reference/filter_by_month.html</loc>
   </url>
   <url>
+    <loc>https://frbcesab.github.io/forcis/reference/filter_by_ocean.html</loc>
+  </url>
+  <url>
     <loc>https://frbcesab.github.io/forcis/reference/filter_by_species.html</loc>
   </url>
   <url>
@@ -50,6 +53,9 @@
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/get_forcis_db.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/forcis/reference/get_ocean_names.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/get_required_columns.html</loc>
