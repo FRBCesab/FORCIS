@@ -95,10 +95,10 @@
 <span><span class="co"># path       &lt;- here::here()</span></span>
 <span></span>
 <span><span class="co"># Download the latest version of FORCIS database (from Zenodo) ----</span></span>
-<span><span class="fu"><a href="../reference/get_forcis_db.html">get_forcis_db</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
+<span><span class="fu">get_forcis_db</span><span class="op">(</span>path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Import net data ----</span></span>
-<span><span class="va">nets</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_data.html">get_plankton_nets_data</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
+<span><span class="va">nets</span> <span class="op">&lt;-</span> <span class="fu">get_plankton_nets_data</span><span class="op">(</span><span class="va">path</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Select taxonomy ----</span></span>
 <span><span class="va">nets</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_taxonomy.html">select_taxonomy</a></span><span class="op">(</span><span class="va">nets</span>, taxonomy <span class="op">=</span> <span class="st">"OT"</span><span class="op">)</span></span>

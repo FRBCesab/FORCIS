@@ -28,10 +28,16 @@
     <loc>https://frbcesab.github.io/forcis/news/index.html</loc>
   </url>
   <url>
+    <loc>https://frbcesab.github.io/forcis/reference/available_versions.html</loc>
+  </url>
+  <url>
     <loc>https://frbcesab.github.io/forcis/reference/computations.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/data_to_sf.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/forcis/reference/download_forcis_db.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/filter_by_bbox.html</loc>
@@ -61,12 +67,6 @@
     <loc>https://frbcesab.github.io/forcis/reference/get_current_version.html</loc>
   </url>
   <url>
-    <loc>https://frbcesab.github.io/forcis/reference/get_data.html</loc>
-  </url>
-  <url>
-    <loc>https://frbcesab.github.io/forcis/reference/get_forcis_db.html</loc>
-  </url>
-  <url>
     <loc>https://frbcesab.github.io/forcis/reference/get_ocean_names.html</loc>
   </url>
   <url>
@@ -82,7 +82,10 @@
     <loc>https://frbcesab.github.io/forcis/reference/map_distribution.html</loc>
   </url>
   <url>
-    <loc>https://frbcesab.github.io/forcis/reference/reshape_forcis.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/read_data.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/forcis/reference/reshape_data.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/select_columns.html</loc>
@@ -91,9 +94,6 @@
     <loc>https://frbcesab.github.io/forcis/reference/select_taxonomy.html</loc>
   </url>
   <url>
-    <loc>https://frbcesab.github.io/forcis/reference/zen_get_version_info.html</loc>
-  </url>
-  <url>
-    <loc>https://frbcesab.github.io/forcis/reference/zen_list_versions.html</loc>
+    <loc>https://frbcesab.github.io/forcis/reference/version_info.html</loc>
   </url>
 </urlset>
