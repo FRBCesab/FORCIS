@@ -2,8 +2,12 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
+  data-conversion: data-conversion.html
+  data-filtering: data-filtering.html
+  data-visualization: data-visualization.html
+  database-versions: database-versions.html
   forcis: forcis.html
-last_built: 2024-02-12T15:38Z
+last_built: 2024-02-12T15:47Z
 urls:
   reference: https://frbcesab.github.io/forcis/reference
   article: https://frbcesab.github.io/forcis/articles
