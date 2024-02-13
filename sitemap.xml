@@ -40,9 +40,6 @@
     <loc>https://frbcesab.github.io/forcis/news/index.html</loc>
   </url>
   <url>
-    <loc>https://frbcesab.github.io/forcis/reference/available_versions.html</loc>
-  </url>
-  <url>
     <loc>https://frbcesab.github.io/forcis/reference/computations.html</loc>
   </url>
   <url>
@@ -76,6 +73,9 @@
     <loc>https://frbcesab.github.io/forcis/reference/geom_basemap.html</loc>
   </url>
   <url>
+    <loc>https://frbcesab.github.io/forcis/reference/get_available_versions.html</loc>
+  </url>
+  <url>
     <loc>https://frbcesab.github.io/forcis/reference/get_current_version.html</loc>
   </url>
   <url>
@@ -86,6 +86,9 @@
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/get_species_names.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/forcis/reference/get_version_info.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/index.html</loc>
@@ -104,8 +107,5 @@
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/reference/select_taxonomy.html</loc>
-  </url>
-  <url>
-    <loc>https://frbcesab.github.io/forcis/reference/version_info.html</loc>
   </url>
 </urlset>
