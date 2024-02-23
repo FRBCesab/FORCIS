@@ -93,10 +93,63 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frbcesab.github.io/forcis">forcis</a></span><span class="op">)</span></span></code></pre></div>
-<p>Work in progress…</p>
-  </main>
+<p>The <a href="https://zenodo.org/doi/10.5281/zenodo.7390791" class="external-link">FORCIS
+database</a> is regularly updated. The global structure of the
+<code>csv</code> files doesn’t change between versions but some bugs can
+be fixed and new records can also be added. This is why it is
+<strong>recommended to use the latest version</strong> of the
+database.</p>
+<div class="section level2">
+<h2 id="using-the-latest-version">Using the latest version<a class="anchor" aria-label="anchor" href="#using-the-latest-version"></a>
+</h2>
+<p>The package <code>forcis</code> is designed to handle the versioning
+of the database on Zenodo and will inform the user if a new version is
+available each time he/she uses one of the <code>read_*_data()</code>
+functions. The following message will be displayed:</p>
+<pre><code>A newer version of the FORCIS database is available. Use 'download_forcis_db(version = NULL)' to download it.</code></pre>
+<p>As mentioned in this message, the decision to download and use the
+latest version of the database is left to the user.</p>
+<p>A <strong>good practice</strong> to ensure that the user works with
+the latest version of the database might be to add this line at the
+beginning of the script:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/download_forcis_db.html">download_forcis_db</a></span><span class="op">(</span>version <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<p>Note that the FORCIS database is saved in
+<code>forcis-db/version-99/</code>, where <code>99</code> is the label
+of the version. If you regularly download the new versions, the content
+of the folder <code>forcis-db/</code> can increase with time and it can
+be interesting to manually delete the folder of the previous
+versions.</p>
+</div>
+<div class="section level2">
+<h2 id="using-a-specific-version">Using a specific version<a class="anchor" aria-label="anchor" href="#using-a-specific-version"></a>
+</h2>
+<p>If for some reasons the user wants to freeze the version he/she uses,
+it is possible to disable this message by setting the argument
+<code>check_for_update</code> to <code>FALSE</code> in the
+<code>read_*_data()</code> functions.</p>
+<p>It is also possible to disable this message globally with the
+following line:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>check_for_update <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p>The package <code>forcis</code> “knows” which version of the database
+you used last time. A hidden file <code>.forcis</code> is
+created/updated each time the function <code><a href="../reference/download_forcis_db.html">download_forcis_db()</a></code>
+or <code>read_*_data()</code> is called. This hidden file contains one
+line:</p>
+<pre><code><span><span class="va">FORCIS_VERSION</span><span class="op">=</span><span class="fl">99</span></span></code></pre>
+<p>Note that this hidden file is used by some functions of the
+<code>forcis</code> package. User doesn’t have to edit it by hand.</p>
+<p>If you want to be sure to use a specific version of the database, you
+can use the argument <code>version</code> of the
+<code>read_*_data()</code> functions, or use the following line:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>forcis_version <span class="op">=</span> <span class="st">"99"</span><span class="op">)</span></span></code></pre></div>
+<p>But again, it is <strong>recommended to use the latest
+version</strong> of the database.</p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
