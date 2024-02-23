@@ -16,9 +16,6 @@
     <loc>https://frbcesab.github.io/forcis/articles/data-conversion.html</loc>
   </url>
   <url>
-    <loc>https://frbcesab.github.io/forcis/articles/data-filtering.html</loc>
-  </url>
-  <url>
     <loc>https://frbcesab.github.io/forcis/articles/data-visualization.html</loc>
   </url>
   <url>
@@ -29,6 +26,9 @@
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://frbcesab.github.io/forcis/articles/select-and-filter-data.html</loc>
   </url>
   <url>
     <loc>https://frbcesab.github.io/forcis/authors.html</loc>
