@@ -128,12 +128,12 @@ versions.</p>
 it is possible to disable this message by setting the argument
 <code>check_for_update</code> to <code>FALSE</code> in the
 <code>read_*_data()</code> functions.</p>
-<p>It is also possible to disable this message globally with the
-following line:</p>
+<p>It is also possible to disable this message globally for the current
+session:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>check_for_update <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p>The package <code>forcis</code> “knows” which version of the database
-you used last time. A hidden file <code>.forcis</code> is
+<p>The package <code>forcis</code> <em>“knows”</em> which version of the
+database you used last time. A hidden file <code>.forcis</code> is
 created/updated each time the function <code><a href="../reference/download_forcis_db.html">download_forcis_db()</a></code>
 or <code>read_*_data()</code> is called. This hidden file contains one
 line:</p>
