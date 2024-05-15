@@ -99,10 +99,26 @@
 </blockquote>
 <p>Add an good introduction of the package.</p>
 <div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>To install the <code>forcis</code> package, run:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Install &lt; remotes &gt; package (if not already installed) ----</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"remotes"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co">## Install dev version of &lt; forcis &gt; from GitHub ----</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"FRBCesab/forcis"</span><span class="op">)</span></span></code></pre></div>
+<p>The <code>forcis</code> package depends on the <a href="https://r-spatial.github.io/sf/" class="external-link"><code>sf</code></a> package which
+requires some spatial system libraries (GDAL and PROJ). Please read <a href="https://github.com/r-spatial/sf?tab=readme-ov-file#installing" class="external-link">this
+page</a> if you have any trouble to install <code>forcis</code>.</p>
+</div>
+<div class="section level2">
 <h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
 </h2>
-<p>First, let’s import the required packages.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<p>First, let’s attach the required packages.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frbcesab.github.io/forcis">forcis</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -110,7 +126,7 @@
 </h2>
 <p>Before going any further, we will download the latest version of the
 FORCIS database.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a data/ folder ----</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span>
 <span></span>
@@ -122,7 +138,7 @@ FORCIS database.</p>
 </h2>
 <p>The vignette will use the PUMP data of the FORCIS database. Let’s
 import the latest release of the data.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Import pump data ----</span></span>
 <span><span class="va">pump_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_data.html">read_pump_data</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>NB:</strong> In this vignette, we use a subset of the PUMP
