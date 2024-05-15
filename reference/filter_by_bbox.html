@@ -108,12 +108,6 @@ bounding box.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">pump_data</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 198 381</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Get ocean names ----</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="get_ocean_names.html">get_ocean_names</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Arctic Ocean"         "Indian Ocean"         "Mediterranean Sea"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "North Atlantic Ocean" "North Pacific Ocean"  "South Atlantic Ocean"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [7] "South Pacific Ocean"  "Southern Ocean"      </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Filter by oceans ----</span></span></span>
 <span class="r-in"><span><span class="va">pump_data_sub</span> <span class="op">&lt;-</span> <span class="fu">filter_by_bbox</span><span class="op">(</span><span class="va">pump_data</span>, bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">35</span>, <span class="fl">0</span>, <span class="fl">45</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
