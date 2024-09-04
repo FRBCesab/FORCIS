@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Select and filter data • forcis</title>
+<title>Select, reshape, and filter data • forcis</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Select and filter data">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Select, reshape, and filter data">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -60,7 +60,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Select and filter data</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Select, reshape, and filter data</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/master/vignettes/select-and-filter-data.Rmd" class="external-link"><code>vignettes/select-and-filter-data.Rmd</code></a></small>
@@ -112,25 +112,33 @@ data, not the whole dataset.</p>
 <p>[…]</p>
 </div>
 <div class="section level2">
-<h2 id="filter_by_species">
-<code>filter_by_species()</code><a class="anchor" aria-label="anchor" href="#filter_by_species"></a>
+<h2 id="reshape_data">
+<code>reshape_data</code>()`<a class="anchor" aria-label="anchor" href="#reshape_data"></a>
 </h2>
-<p>Add an illustration of <code><a href="../reference/filter_by_species.html">filter_by_species()</a></code></p>
-<p>[…]</p>
+<p>This function converts FORCIS data in a long format.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Reshape net subset data to long format </span></span>
+<span><span class="va">long_net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/reshape_data.html">reshape_data</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="filter_by_month">
 <code>filter_by_month()</code><a class="anchor" aria-label="anchor" href="#filter_by_month"></a>
 </h2>
-<p>Add an illustration of <code><a href="../reference/filter_by_month.html">filter_by_month()</a></code></p>
-<p>[…]</p>
+<p>The <code><a href="../reference/filter_by_month.html">filter_by_month()</a></code> function filters observations
+based on the month of sampling. It requires two arguments: the data and
+a numeric vector with values between 1 and 12.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">net_July_Aug</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/filter_by_month.html">filter_by_month</a></span><span class="op">(</span><span class="va">net_data</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">7</span>,<span class="fl">8</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="filter_by_year">
 <code>filter_by_year()</code><a class="anchor" aria-label="anchor" href="#filter_by_year"></a>
 </h2>
-<p>Add an illustration of <code><a href="../reference/filter_by_year.html">filter_by_year()</a></code></p>
-<p>[…]</p>
+<p>The <code><a href="../reference/filter_by_year.html">filter_by_year()</a></code> function filters observations based
+on the year of sampling. It requires two arguments: the data and a
+numeric vector with the year of interest.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">net_97_2000</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/filter_by_year.html">filter_by_year</a></span><span class="op">(</span><span class="va">net_data</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1997</span><span class="op">:</span><span class="fl">2000</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="filter_by_bbox">
@@ -152,6 +160,24 @@ data, not the whole dataset.</p>
 </h2>
 <p>Add an illustration of <code><a href="../reference/filter_by_polygon.html">filter_by_polygon()</a></code></p>
 <p>[…]</p>
+</div>
+<div class="section level2">
+<h2 id="filter_by_species">
+<code>filter_by_species()</code><a class="anchor" aria-label="anchor" href="#filter_by_species"></a>
+</h2>
+<p>This function allows to filter the data for one or more species. To
+work, this function requires data in a long format( see the
+<code>reshape_data</code> function and the <a href="https://frbcesab.github.io/forcis/articles/data-conversion.html">conversion
+functions</a>).</p>
+<p>The <code><a href="../reference/filter_by_species.html">filter_by_species()</a></code> function takes a dataframe and a
+species name or a vector of species names as input (the list of all the
+accepted input species names are presented in the <a href="https://zenodo.org/records/12724286" class="external-link">FORCIS_taxonomy_levels.xlsx
+file on Zenodo</a>).</p>
+<p>In the example below we subset <code>long_net_data</code> to retain
+only observations on <em>G. glutinata</em> and <em>C. nitida</em>.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Convert species counts in raw abundance</span></span>
+<span><span class="va">glutinata_nitida_subset</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filter_by_species.html">filter_by_species</a></span><span class="op">(</span><span class="va">long_net_data</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'g_glutinata_VT'</span>,<span class="st">'c_nitida_VT'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
