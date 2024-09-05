@@ -36,7 +36,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-vignettes">
 <li><a class="dropdown-item" href="../articles/sampling-devices.html">Sampling devices</a></li>
     <li><a class="dropdown-item" href="../articles/database-versions.html">Database versions</a></li>
-    <li><a class="dropdown-item" href="../articles/select-and-filter-data.html">Select and filter data</a></li>
+    <li><a class="dropdown-item" href="../articles/select-and-filter-data.html">Select, reshape, and filter data</a></li>
     <li><a class="dropdown-item" href="../articles/data-conversion.html">Data conversion</a></li>
     <li><a class="dropdown-item" href="../articles/data-visualization.html">Data visualization</a></li>
   </ul>
@@ -90,13 +90,13 @@ FORCIS database.</p>
 <span></span>
 <span><span class="co"># Download latest version of the database ----</span></span>
 <span><span class="fu"><a href="../reference/download_forcis_db.html">download_forcis_db</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span>, version <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
-<p>The vignette will use the PUMP data of the FORCIS database. Let’s
-import the latest release of the data.</p>
+<p>The vignette will use the plankton nets data of the FORCIS database.
+Let’s import the latest release of the data.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Import pump data ----</span></span>
-<span><span class="va">pump_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_data.html">read_pump_data</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></code></pre></div>
-<p><strong>NB:</strong> In this vignette, we use a subset of the PUMP
-data, not the whole dataset.</p>
+<code class="sourceCode R"><span><span class="co"># Import net data ----</span></span>
+<span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_data.html">read_plankton_nets_data</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></code></pre></div>
+<p><strong>NB:</strong> In this vignette, we use a subset of the
+plankton nets data, not the whole dataset.</p>
 </div>
 <div class="section level2">
 <h2 id="geom_basemap">
@@ -119,49 +119,49 @@ projection</a>.</p>
 <code>ggmap_data()</code><a class="anchor" aria-label="anchor" href="#ggmap_data"></a>
 </h2>
 <p>The function <code><a href="../reference/ggmap_data.html">ggmap_data()</a></code> can be used to plot FORCIS
-data on a World map. Let’s map the PUMP data.</p>
+data on a World map. Let’s map the plankton nets data.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Map raw pump data ----</span></span>
-<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">pump_data</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Map raw net data ----</span></span>
+<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="data-visualization_files/figure-html/ggmap-raw-data-1.png" width="90%" style="display: block; margin: auto;"></p>
 <p>User can customize the aesthetic of the data:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Customize map ----</span></span>
-<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">pump_data</span>, col <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"red"</span>, shape <span class="op">=</span> <span class="fl">21</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">net_data</span>, col <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"red"</span>, shape <span class="op">=</span> <span class="fl">21</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <p><img src="data-visualization_files/figure-html/ggmap-raw-data-2-1.png" width="90%" style="display: block; margin: auto;"></p>
 <p>And add a title:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Add a title ----</span></span>
-<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">pump_data</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"FORCIS Pump data"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"FORCIS net data"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="data-visualization_files/figure-html/ggmap-raw-data-3-1.png" width="90%" style="display: block; margin: auto;"></p>
 <p>This function works with the output of various functions available in
 the <code>forcis</code> package. For example:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Filter pump data ----</span></span>
-<span><span class="va">indian_pump_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filter_by_ocean.html">filter_by_ocean</a></span><span class="op">(</span><span class="va">pump_data</span>, ocean <span class="op">=</span> <span class="st">"Indian Ocean"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># Filter net data ----</span></span>
+<span><span class="va">indian_net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filter_by_ocean.html">filter_by_ocean</a></span><span class="op">(</span><span class="va">net_data</span>, ocean <span class="op">=</span> <span class="st">"Indian Ocean"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Map filtered data ----</span></span>
-<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">indian_pump_data</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">indian_net_data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="data-visualization_files/figure-html/ggmap-filtered-data-1.png" width="90%" style="display: block; margin: auto;"></p>
 <p>Note that the <code>forcis</code> package is pipe-friendly.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Same as before, but w/ the pipe ----</span></span>
-<span><span class="va">pump_data</span> <span class="op">%&gt;%</span></span>
+<span><span class="va">net_data</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/filter_by_ocean.html">filter_by_ocean</a></span><span class="op">(</span>ocean <span class="op">=</span> <span class="st">"Indian Ocean"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>You can export this map with the function <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave()</a></code> of
 the package <code>ggplot2</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map filtered data ----</span></span>
-<span><span class="va">indian_pump_data_map</span> <span class="op">&lt;-</span> <span class="va">pump_data</span> <span class="op">%&gt;%</span></span>
+<span><span class="va">indian_net_data_map</span> <span class="op">&lt;-</span> <span class="va">net_data</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/filter_by_ocean.html">filter_by_ocean</a></span><span class="op">(</span>ocean <span class="op">=</span> <span class="st">"Indian Ocean"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"FORCIS Pump data - Indian Ocean"</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"FORCIS net data - Indian Ocean"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Save as PNG ----</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave</a></span><span class="op">(</span><span class="va">indian_pump_data_map</span>, </span>
-<span>       filename <span class="op">=</span> <span class="st">"indian_pump_data_map.png"</span>,</span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave</a></span><span class="op">(</span><span class="va">indian_net_data_map</span>, </span>
+<span>       filename <span class="op">=</span> <span class="st">"indian_net_data_map.png"</span>,</span>
 <span>       width    <span class="op">=</span> <span class="fl">20</span>, </span>
 <span>       height   <span class="op">=</span> <span class="fl">11</span>, </span>
 <span>       units    <span class="op">=</span> <span class="st">"cm"</span>, </span>
