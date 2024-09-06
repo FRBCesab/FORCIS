@@ -69,7 +69,6 @@
 
     
     
-<!-- > **NOTE:** THIS IS A WORK IN PROGRESS. -->
 <p>The package <code>forcis</code> provides <a href="https://frbcesab.github.io/forcis/reference/index.html#standardization-functions">functions</a>
 to homogenize FORCIS data and compute abundances, concentrations, and
 frequencies of foraminifera counts. This vignette shows how to use these
@@ -81,18 +80,25 @@ functions.</p>
 with multiple devices. These counts are reported in different
 formats:</p>
 <ul>
-<li>Raw abundance: number of specimens counted within a sampling
-unit.</li>
-<li>Number concentration: number of specimens per cubic meter.</li>
-<li>Relative abundance: percentage of specimens relative to the total
-counted</li>
-<li>Fluxes: number of specimens per square meter per day.</li>
-<li>Binned counts: Number of specimens categorized into a specific range
-(minimum and maximum) within a sampling unit.</li>
+<li>
+<strong>Raw abundance</strong>: number of specimens counted within a
+sampling unit.</li>
+<li>
+<strong>Number concentration</strong>: number of specimens per cubic
+meter.</li>
+<li>
+<strong>Relative abundance</strong>: percentage of specimens
+relative to the total counted</li>
+<li>
+<strong>Fluxes</strong>: number of specimens per square meter per
+day.</li>
+<li>
+<strong>Binned counts</strong>: number of specimens categorized into
+a specific range (minimum and maximum) within a sampling unit.</li>
 </ul>
 </div>
 <div class="section level2">
-<h2 id="conversion-functions">Conversion Functions<a class="anchor" aria-label="anchor" href="#conversion-functions"></a>
+<h2 id="conversion-functions">Conversion functions<a class="anchor" aria-label="anchor" href="#conversion-functions"></a>
 </h2>
 <p>The functions detailed in this vignette allow to convert counts
 between the following formats <strong>Raw abundance</strong>,
@@ -102,37 +108,94 @@ concentration</strong>.</p>
 <p><strong>NOTE:</strong> FORCIS data from <em>Sediment traps</em> and
 the <em>CPR North</em> are not supported by these functions.</p>
 </blockquote>
-<div class="section level3">
-<h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
-</h3>
-<p>The vignette will use the PUMP data of the FORCIS database. Let’s
-import the latest release of the data as described in the <a href="https://frbcesab.github.io/forcis/articles/forcis.html">Get
-started vignette</a>.</p>
+<p>First, let’s import the required package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Import pump data </span></span>
-<span> <span class="va">pump_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_data.html">read_pump_data</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></code></pre></div>
-<p>After obtaining the data, the initial step involves choosing the
-taxonomic level for our analyses, (the different taxonomic levels are
-described in the <a href="https://www.nature.com/articles/s41597-023-02264-2" class="external-link">original
-FORCIS database paper</a> ). This selection is made using the
-<code><a href="../reference/select_taxonomy.html">select_taxonomy()</a></code> function.</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frbcesab.github.io/forcis">forcis</a></span><span class="op">)</span></span></code></pre></div>
+<p>Before going any further, we will download the latest version of the
+FORCIS database.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Select taxonomy</span></span>
-<span><span class="va">OT_pump_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_taxonomy.html">select_taxonomy</a></span><span class="op">(</span><span class="va">pump_data</span>,<span class="st">'OT'</span><span class="op">)</span></span></code></pre></div>
-<p>Once the data contains counts from the same taxonomic level for all
-the samples we can proceed with the conversion functions.</p>
-<div class="section level4">
-<h4 id="compute_abundances">
+<code class="sourceCode R"><span><span class="co"># Create a data/ folder ----</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Download latest version of the database ----</span></span>
+<span><span class="fu"><a href="../reference/download_forcis_db.html">download_forcis_db</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span>, version <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<p>The vignette will use the plankton nets data of the FORCIS database.
+Let’s import the latest release of the data.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Import net data ----</span></span>
+<span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_data.html">read_plankton_nets_data</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></code></pre></div>
+<p><strong>NB:</strong> In this vignette, we use a subset of the
+plankton nets data, not the whole dataset.</p>
+<p>After importing the data, the initial step involves choosing the
+taxonomic level for the analyses, (the different taxonomic levels are
+described in this <a href="https://www.nature.com/articles/s41597-023-02264-2" class="external-link">data paper</a>
+).</p>
+<p>Let’s use the function <code><a href="../reference/select_taxonomy.html">select_taxonomy()</a></code> to select the
+<strong>VT</strong> taxonomy (validated taxonomy):</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Select taxonomy ----</span></span>
+<span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_taxonomy.html">select_taxonomy</a></span><span class="op">(</span><span class="va">net_data</span>, taxonomy <span class="op">=</span> <span class="st">"VT"</span><span class="op">)</span></span></code></pre></div>
+<p>Once the data contains counts from the same taxonomic level, we can
+proceed with the conversion functions: <code>compute_*()</code>.</p>
+<p>The functions accept two arguments: the input <code>data</code> and
+the <code>aggregate</code> argument. If <code>aggregate = TRUE</code>,
+the function will return the transformed counts of each species using
+the sample as the unit. If <code>aggregate = FALSE</code>, it will
+re-calculate the species’ abundance by subsample.</p>
+<div class="section level3">
+<h3 id="compute_abundances">
 <code>compute_abundances()</code><a class="anchor" aria-label="anchor" href="#compute_abundances"></a>
-</h4>
+</h3>
 <p>This function converts all counts into raw abundances, using sampling
 metadata such as sample volume and total assemblage counts. It
-calculates the raw abundance for each species whose counts are reported
-as either relative abundance or number concentrations.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Convert species counts in raw abundance</span></span>
-<span><span class="va">OT_pump_data_raw_ab</span><span class="op">=</span><span class="fu"><a href="../reference/computations.html">compute_abundances</a></span><span class="op">(</span><span class="va">OT_pump_data</span>,aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-</div>
+calculates the raw abundance for each taxon whose counts are reported as
+either relative abundance or number concentrations.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Convert species counts in raw abundance ----</span></span>
+<span><span class="va">net_data_raw_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/computations.html">compute_abundances</a></span><span class="op">(</span><span class="va">net_data</span>, aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Counts from 26 samples could not be converted because of missing volume data</span></span>
+<span><span class="co">#&gt; Relative counts from 24 samples could not be converted because of missing data on total assemblage</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Format ----</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2451   77</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">net_data_raw_ab</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 39032    16</span></span>
+<span></span>
+<span><span class="co"># Header ----</span></span>
+<span><span class="va">net_data_raw_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">net_data_raw_ab</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">net_data_raw_ab</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   data_type    cruise_id            profile_id sample_id sample_min_depth</span></span>
+<span><span class="co">#&gt; 1       Net RinaldoDohrn L20_RinaldoDohrn_10_1  L20_10_1                0</span></span>
+<span><span class="co">#&gt; 2       Net RinaldoDohrn L20_RinaldoDohrn_10_1  L20_10_1                0</span></span>
+<span><span class="co">#&gt; 3       Net RinaldoDohrn L20_RinaldoDohrn_10_1  L20_10_1                0</span></span>
+<span><span class="co">#&gt; 4       Net RinaldoDohrn L20_RinaldoDohrn_10_1  L20_10_1                0</span></span>
+<span><span class="co">#&gt; 5       Net RinaldoDohrn L20_RinaldoDohrn_10_1  L20_10_1                0</span></span>
+<span><span class="co">#&gt; 6       Net RinaldoDohrn L20_RinaldoDohrn_10_1  L20_10_1                0</span></span>
+<span><span class="co">#&gt;   sample_max_depth profile_depth_min profile_depth_max profile_date_time</span></span>
+<span><span class="co">#&gt; 1               20                 0               300        09/04/1979</span></span>
+<span><span class="co">#&gt; 2               20                 0               300        09/04/1979</span></span>
+<span><span class="co">#&gt; 3               20                 0               300        09/04/1979</span></span>
+<span><span class="co">#&gt; 4               20                 0               300        09/04/1979</span></span>
+<span><span class="co">#&gt; 5               20                 0               300        09/04/1979</span></span>
+<span><span class="co">#&gt; 6               20                 0               300        09/04/1979</span></span>
+<span><span class="co">#&gt;   cast_net_op_m2 sample_segment_length site_lat_start_decimal</span></span>
+<span><span class="co">#&gt; 1             NA                    NA                   40.7</span></span>
+<span><span class="co">#&gt; 2             NA                    NA                   40.7</span></span>
+<span><span class="co">#&gt; 3             NA                    NA                   40.7</span></span>
+<span><span class="co">#&gt; 4             NA                    NA                   40.7</span></span>
+<span><span class="co">#&gt; 5             NA                    NA                   40.7</span></span>
+<span><span class="co">#&gt; 6             NA                    NA                   40.7</span></span>
+<span><span class="co">#&gt;   site_lon_start_decimal sample_volume_filtered            taxa counts_raw_ab</span></span>
+<span><span class="co">#&gt; 1                  15.08                   1000   b_digitata_VT             0</span></span>
+<span><span class="co">#&gt; 2                  15.08                   1000    b_pumilio_VT             0</span></span>
+<span><span class="co">#&gt; 3                  15.08                   1000 b_variabilis_VT             0</span></span>
+<span><span class="co">#&gt; 4                  15.08                   1000     c_nitida_VT             0</span></span>
+<span><span class="co">#&gt; 5                  15.08                   1000   d_anfracta_VT             0</span></span>
+<span><span class="co">#&gt; 6                  15.08                   1000     g_adamsi_VT             0</span></span></code></pre></div>
+<p>The functions <code>compute_*()</code> output a table in a
+long-format as well as a message reporting the amount of data that could
+not be converted because of missing metadata.</p>
 <div class="section level4">
 <h4 id="compute_concentrations">
 <code>compute_concentrations()</code><a class="anchor" aria-label="anchor" href="#compute_concentrations"></a>
@@ -141,9 +204,11 @@ as either relative abundance or number concentrations.</p>
 abundances. It also leverages sampling metadata such as sample volume
 and total assemblage counts to compute the number concentration for each
 species.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Convert species counts in number concentration</span></span>
-<span><span class="va">OT_pump_data_n_conc</span><span class="op">=</span><span class="fu"><a href="../reference/computations.html">compute_concentrations</a></span><span class="op">(</span><span class="va">OT_pump_data</span>,aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Convert species counts in number concentration ----</span></span>
+<span><span class="va">net_data_n_conc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/computations.html">compute_concentrations</a></span><span class="op">(</span><span class="va">net_data</span>, aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Counts from 14 samples could not be converted because of missing volume data</span></span>
+<span><span class="co">#&gt; Relative counts from 24 samples could not be converted because of missing data on total assemblage</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="compute_frequencies">
@@ -151,17 +216,11 @@ species.</p>
 </h4>
 <p>This function computes relative abundance for each species using
 total assemblage counts when available.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Convert species counts in relative abundance </span></span>
-<span><span class="va">OT_pump_data_rel_ab</span><span class="op">=</span><span class="fu"><a href="../reference/computations.html">compute_frequencies</a></span><span class="op">(</span><span class="va">OT_pump_data</span>,aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p>The functions accept two arguments: the input data and the aggregate
-argument. If <code>aggregate</code> is set to <strong>TRUE</strong>, the
-function will return the transformed counts of each species using the
-sample as the unit. If <strong>FALSE</strong>, it will re-calculate the
-species’ abundance by subsample.</p>
-<p>The functions output a table (long-format) as well as a message
-reporting the amount of data that could not be converted because of
-missing metadata.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Convert species counts in relative abundance ----</span></span>
+<span><span class="va">net_data_rel_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/computations.html">compute_frequencies</a></span><span class="op">(</span><span class="va">net_data</span>, aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Counts from 12 samples could not be converted because of missing volume data</span></span>
+<span><span class="co">#&gt; Counts from 0 samples could not be converted because of missing data on total assemblage</span></span></code></pre></div>
 </div>
 </div>
 </div>
