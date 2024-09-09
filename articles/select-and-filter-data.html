@@ -69,12 +69,9 @@
 
     
     
-<blockquote>
-<p><strong>NOTE:</strong> THIS IS A WORK IN PROGRESS.</p>
-</blockquote>
 <p>The package <code>forcis</code> provides <a href="https://frbcesab.github.io/forcis/reference/index.html#select-and-filters-tools">a
-lot of functions</a> to filter and select FORCIS data. This vignette
-shows how to use these functions.</p>
+lot of functions</a> to filter, reshape, and select FORCIS data. This
+vignette shows how to use these functions.</p>
 <div class="section level2">
 <h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
 </h2>
@@ -98,25 +95,44 @@ Let’s import the latest release of the data.</p>
 plankton nets data, not the whole dataset.</p>
 </div>
 <div class="section level2">
-<h2 id="select_columns">
-<code>select_columns()</code><a class="anchor" aria-label="anchor" href="#select_columns"></a>
-</h2>
-<p>Add an illustration of <code><a href="../reference/select_columns.html">select_columns()</a></code></p>
-<p>[…]</p>
-</div>
-<div class="section level2">
 <h2 id="select_taxonomy">
 <code>select_taxonomy()</code><a class="anchor" aria-label="anchor" href="#select_taxonomy"></a>
 </h2>
-<p>Add an illustration of <code><a href="../reference/select_taxonomy.html">select_taxonomy()</a></code></p>
-<p>[…]</p>
+<p>The FORCIS database provides three different taxonomies:
+<code>LT</code> (lumped taxonomy), <code>VT</code> (validated taxonomy)
+and <code>OT</code> (original taxonomy). See the <a href="https://doi.org/10.1038/s41597-023-02264-2" class="external-link">associated data
+paper</a> for further information.</p>
+<p>After importing the data and before going any further, the next step
+involves choosing the taxonomic level for the analyses. Let’s use the
+function <code><a href="../reference/select_taxonomy.html">select_taxonomy()</a></code> to select the
+<strong>VT</strong> taxonomy (validated taxonomy):</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Select taxonomy ----</span></span>
+<span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_taxonomy.html">select_taxonomy</a></span><span class="op">(</span><span class="va">net_data</span>, taxonomy <span class="op">=</span> <span class="st">"VT"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="select_columns">
+<code>select_columns()</code><a class="anchor" aria-label="anchor" href="#select_columns"></a>
+</h2>
+<p>Because FORCIS data contains more than 100 columns, the function
+<code><a href="../reference/select_columns.html">select_columns()</a></code> can be used to lighten the
+<code>data.frame</code> to easily handle it and to speed up some
+computations.</p>
+<p>By default, only required columns listed in
+<code><a href="../reference/get_required_columns.html">get_required_columns()</a></code> and species columns will be
+kept.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Select taxonomy ----</span></span>
+<span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_columns.html">select_columns</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
+<p>You can also use the argument <code>cols</code> to keep additional
+columns.</p>
 </div>
 <div class="section level2">
 <h2 id="reshape_data">
-<code>reshape_data</code>()`<a class="anchor" aria-label="anchor" href="#reshape_data"></a>
+<code>reshape_data()</code><a class="anchor" aria-label="anchor" href="#reshape_data"></a>
 </h2>
 <p>This function converts FORCIS data in a long format.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Reshape net subset data to long format </span></span>
 <span><span class="va">long_net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/reshape_data.html">reshape_data</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -125,20 +141,55 @@ plankton nets data, not the whole dataset.</p>
 <code>filter_by_month()</code><a class="anchor" aria-label="anchor" href="#filter_by_month"></a>
 </h2>
 <p>The <code><a href="../reference/filter_by_month.html">filter_by_month()</a></code> function filters observations
-based on the month of sampling. It requires two arguments: the data and
-a numeric vector with values between 1 and 12.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">net_July_Aug</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/filter_by_month.html">filter_by_month</a></span><span class="op">(</span><span class="va">net_data</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">7</span>,<span class="fl">8</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+based on the <strong>month of sampling</strong>. It requires two
+arguments: the data and a numeric vector with values between 1 and
+12.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Filter data by sampling month ----</span></span>
+<span><span class="va">net_july_aug</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filter_by_month.html">filter_by_month</a></span><span class="op">(</span><span class="va">net_data</span>, months <span class="op">=</span> <span class="fl">7</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot original record by sampling month ----</span></span>
+<span><span class="fu"><a href="../reference/plot_record_by_month.html">plot_record_by_month</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="select-and-filter-data_files/figure-html/plot-by-month-original-1.png" alt="Original record" width="90%"><p class="caption">
+Original record
+</p>
+</div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot filtered record by sampling month ----</span></span>
+<span><span class="fu"><a href="../reference/plot_record_by_month.html">plot_record_by_month</a></span><span class="op">(</span><span class="va">net_july_aug</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="select-and-filter-data_files/figure-html/plot-by-month-filtered-1.png" alt="Filtered record" width="90%"><p class="caption">
+Filtered record
+</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="filter_by_year">
 <code>filter_by_year()</code><a class="anchor" aria-label="anchor" href="#filter_by_year"></a>
 </h2>
 <p>The <code><a href="../reference/filter_by_year.html">filter_by_year()</a></code> function filters observations based
-on the year of sampling. It requires two arguments: the data and a
-numeric vector with the year of interest.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">net_97_2000</span> <span class="op">&lt;-</span><span class="fu"><a href="../reference/filter_by_year.html">filter_by_year</a></span><span class="op">(</span><span class="va">net_data</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1997</span><span class="op">:</span><span class="fl">2000</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+on the <strong>year of sampling</strong>. It requires two arguments: the
+data and a numeric vector with the years of interest.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Filter data by sampling year ----</span></span>
+<span><span class="va">net_90_20</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filter_by_year.html">filter_by_year</a></span><span class="op">(</span><span class="va">net_data</span>, years <span class="op">=</span> <span class="fl">1990</span><span class="op">:</span><span class="fl">2020</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot original record by sampling year ----</span></span>
+<span><span class="fu"><a href="../reference/plot_record_by_year.html">plot_record_by_year</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="select-and-filter-data_files/figure-html/plot-by-year-original-1.png" alt="Original record" width="90%"><p class="caption">
+Original record
+</p>
+</div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot filtered record by sampling year ----</span></span>
+<span><span class="fu"><a href="../reference/plot_record_by_year.html">plot_record_by_year</a></span><span class="op">(</span><span class="va">net_90_20</span><span class="op">)</span></span></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="select-and-filter-data_files/figure-html/plot-by-year-filtered-1.png" alt="Filtered record" width="90%"><p class="caption">
+Filtered record
+</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="filter_by_bbox">
@@ -175,7 +226,7 @@ accepted input species names are presented in the <a href="https://zenodo.org/re
 file on Zenodo</a>).</p>
 <p>In the example below we subset <code>long_net_data</code> to retain
 only observations on <em>G. glutinata</em> and <em>C. nitida</em>.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Convert species counts in raw abundance</span></span>
 <span><span class="va">glutinata_nitida_subset</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filter_by_species.html">filter_by_species</a></span><span class="op">(</span><span class="va">long_net_data</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'g_glutinata_VT'</span>,<span class="st">'c_nitida_VT'</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>

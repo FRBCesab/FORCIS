@@ -74,7 +74,7 @@ to homogenize FORCIS data and compute abundances, concentrations, and
 frequencies of foraminifera counts. This vignette shows how to use these
 functions.</p>
 <div class="section level2">
-<h2 id="count-formats-within-forcis">Count formats within FORCIS<a class="anchor" aria-label="anchor" href="#count-formats-within-forcis"></a>
+<h2 id="count-formats">Count formats<a class="anchor" aria-label="anchor" href="#count-formats"></a>
 </h2>
 <p>The FORCIS database includes counts of foraminifera species collected
 with multiple devices. These counts are reported in different
@@ -88,7 +88,7 @@ sampling unit.</li>
 meter.</li>
 <li>
 <strong>Relative abundance</strong>: percentage of specimens
-relative to the total counted</li>
+relative to the total counted.</li>
 <li>
 <strong>Fluxes</strong>: number of specimens per square meter per
 day.</li>
@@ -128,8 +128,8 @@ Let’s import the latest release of the data.</p>
 plankton nets data, not the whole dataset.</p>
 <p>After importing the data, the initial step involves choosing the
 taxonomic level for the analyses, (the different taxonomic levels are
-described in this <a href="https://www.nature.com/articles/s41597-023-02264-2" class="external-link">data paper</a>
-).</p>
+described in this <a href="https://www.nature.com/articles/s41597-023-02264-2" class="external-link">data
+paper</a>).</p>
 <p>Let’s use the function <code><a href="../reference/select_taxonomy.html">select_taxonomy()</a></code> to select the
 <strong>VT</strong> taxonomy (validated taxonomy):</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -138,7 +138,7 @@ described in this <a href="https://www.nature.com/articles/s41597-023-02264-2" c
 <p>Once the data contains counts from the same taxonomic level, we can
 proceed with the conversion functions: <code>compute_*()</code>.</p>
 <p>The functions accept two arguments: the input <code>data</code> and
-the <code>aggregate</code> argument. If <code>aggregate = TRUE</code>,
+the <code>aggregate</code> arguments. If <code>aggregate = TRUE</code>,
 the function will return the transformed counts of each species using
 the sample as the unit. If <code>aggregate = FALSE</code>, it will
 re-calculate the species’ abundance by subsample.</p>
@@ -196,10 +196,11 @@ either relative abundance or number concentrations.</p>
 <p>The functions <code>compute_*()</code> output a table in a
 long-format as well as a message reporting the amount of data that could
 not be converted because of missing metadata.</p>
-<div class="section level4">
-<h4 id="compute_concentrations">
+</div>
+<div class="section level3">
+<h3 id="compute_concentrations">
 <code>compute_concentrations()</code><a class="anchor" aria-label="anchor" href="#compute_concentrations"></a>
-</h4>
+</h3>
 <p>This function transforms all counts into number concentration
 abundances. It also leverages sampling metadata such as sample volume
 and total assemblage counts to compute the number concentration for each
@@ -210,10 +211,10 @@ species.</p>
 <span><span class="co">#&gt; Counts from 14 samples could not be converted because of missing volume data</span></span>
 <span><span class="co">#&gt; Relative counts from 24 samples could not be converted because of missing data on total assemblage</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="compute_frequencies">
+<div class="section level3">
+<h3 id="compute_frequencies">
 <code>compute_frequencies()</code><a class="anchor" aria-label="anchor" href="#compute_frequencies"></a>
-</h4>
+</h3>
 <p>This function computes relative abundance for each species using
 total assemblage counts when available.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -221,7 +222,6 @@ total assemblage counts when available.</p>
 <span><span class="va">net_data_rel_ab</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/computations.html">compute_frequencies</a></span><span class="op">(</span><span class="va">net_data</span>, aggregate <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Counts from 12 samples could not be converted because of missing volume data</span></span>
 <span><span class="co">#&gt; Counts from 0 samples could not be converted because of missing data on total assemblage</span></span></code></pre></div>
-</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
