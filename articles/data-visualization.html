@@ -69,9 +69,6 @@
 
     
     
-<blockquote>
-<p><strong>NOTE:</strong> THIS IS A WORK IN PROGRESS.</p>
-</blockquote>
 <p>The package <code>forcis</code> provides <a href="https://frbcesab.github.io/forcis/reference/index.html#visualization-tools">a
 lot of functions</a> to visualize FORCIS data. This vignette shows how
 to use and customize these functions.</p>
@@ -109,7 +106,7 @@ object.</p>
 <code class="sourceCode R"><span><span class="co"># World basemap ----</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_basemap.html">geom_basemap</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="data-visualization_files/figure-html/geom-basemap-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p><img src="data-visualization_files/figure-html/geom-basemap-1.png" width="80%" style="display: block; margin: auto;"></p>
 <p>These layers come from the <a href="https://www.naturalearthdata.com/" class="external-link">Natural Earth</a> website and
 are defined in the <a href="https://epsg.io/54030" class="external-link">Robinson
 projection</a>.</p>
@@ -123,36 +120,29 @@ data on a World map. Let’s map the plankton nets data.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map raw net data ----</span></span>
 <span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
-<p><img src="data-visualization_files/figure-html/ggmap-raw-data-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p><img src="data-visualization_files/figure-html/ggmap-raw-data-1.png" width="80%" style="display: block; margin: auto;"></p>
 <p>User can customize the aesthetic of the data:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Customize map ----</span></span>
-<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">net_data</span>, col <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"red"</span>, shape <span class="op">=</span> <span class="fl">21</span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
-<p><img src="data-visualization_files/figure-html/ggmap-raw-data-2-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>And add a title:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Add a title ----</span></span>
-<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"FORCIS net data"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="data-visualization_files/figure-html/ggmap-raw-data-3-1.png" width="90%" style="display: block; margin: auto;"></p>
+<span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">net_data</span>, col <span class="op">=</span> <span class="st">"#ff0000"</span>, fill <span class="op">=</span> <span class="cn">NA</span>, shape <span class="op">=</span> <span class="fl">21</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<p><img src="data-visualization_files/figure-html/ggmap-raw-data-2-1.png" width="80%" style="display: block; margin: auto;"></p>
 <p>This function works with the output of various functions available in
 the <code>forcis</code> package. For example:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Filter net data ----</span></span>
 <span><span class="va">indian_net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filter_by_ocean.html">filter_by_ocean</a></span><span class="op">(</span><span class="va">net_data</span>, ocean <span class="op">=</span> <span class="st">"Indian Ocean"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Map filtered data ----</span></span>
 <span><span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="va">indian_net_data</span><span class="op">)</span></span></code></pre></div>
-<p><img src="data-visualization_files/figure-html/ggmap-filtered-data-1.png" width="90%" style="display: block; margin: auto;"></p>
 <p>Note that the <code>forcis</code> package is pipe-friendly.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Same as before, but w/ the pipe ----</span></span>
 <span><span class="va">net_data</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/filter_by_ocean.html">filter_by_ocean</a></span><span class="op">(</span>ocean <span class="op">=</span> <span class="st">"Indian Ocean"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/ggmap_data.html">ggmap_data</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>You can export this map with the function <code><a href="https://ggplot2.tidyverse.org/reference/ggsave.html" class="external-link">ggsave()</a></code> of
 the package <code>ggplot2</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Map filtered data ----</span></span>
 <span><span class="va">indian_net_data_map</span> <span class="op">&lt;-</span> <span class="va">net_data</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="../reference/filter_by_ocean.html">filter_by_ocean</a></span><span class="op">(</span>ocean <span class="op">=</span> <span class="st">"Indian Ocean"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
@@ -173,29 +163,44 @@ the package <code>ggplot2</code>.</p>
 <h2 id="plot_record_by_year">
 <code>plot_record_by_year()</code><a class="anchor" aria-label="anchor" href="#plot_record_by_year"></a>
 </h2>
-<p>Add an illustration of <code><a href="../reference/plot_record_by_year.html">plot_record_by_year()</a></code></p>
-<p>[…]</p>
+<p>The function <code><a href="../reference/plot_record_by_year.html">plot_record_by_year()</a></code> plots the number of
+records (y-axis) by year (x-axis).</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot number of records by year ----</span></span>
+<span><span class="fu"><a href="../reference/plot_record_by_year.html">plot_record_by_year</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
+<p><img src="data-visualization_files/figure-html/plot-record-by-year-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="plot_record_by_month">
 <code>plot_record_by_month()</code><a class="anchor" aria-label="anchor" href="#plot_record_by_month"></a>
 </h2>
-<p>Add an illustration of <code><a href="../reference/plot_record_by_month.html">plot_record_by_month()</a></code></p>
-<p>[…]</p>
+<p>The function <code><a href="../reference/plot_record_by_month.html">plot_record_by_month()</a></code> plots the number of
+records (y-axis) by month (x-axis).</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot number of records by month ----</span></span>
+<span><span class="fu"><a href="../reference/plot_record_by_month.html">plot_record_by_month</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
+<p><img src="data-visualization_files/figure-html/plot-record-by-month-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="plot_record_by_season">
 <code>plot_record_by_season()</code><a class="anchor" aria-label="anchor" href="#plot_record_by_season"></a>
 </h2>
-<p>Add an illustration of <code><a href="../reference/plot_record_by_season.html">plot_record_by_season()</a></code></p>
-<p>[…]</p>
+<p>The function <code><a href="../reference/plot_record_by_season.html">plot_record_by_season()</a></code> plots the number of
+records (y-axis) by season (x-axis).</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot number of records by season ----</span></span>
+<span><span class="fu"><a href="../reference/plot_record_by_season.html">plot_record_by_season</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
+<p><img src="data-visualization_files/figure-html/plot-record-by-season-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="plot_record_by_depth">
 <code>plot_record_by_depth()</code><a class="anchor" aria-label="anchor" href="#plot_record_by_depth"></a>
 </h2>
-<p>Add an illustration of <code><a href="../reference/plot_record_by_depth.html">plot_record_by_depth()</a></code></p>
-<p>[…]</p>
+<p>The function <code><a href="../reference/plot_record_by_depth.html">plot_record_by_depth()</a></code> plots the number of
+records (x-axis) by depth (y-axis).</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot number of records by depth ----</span></span>
+<span><span class="fu"><a href="../reference/plot_record_by_depth.html">plot_record_by_depth</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
