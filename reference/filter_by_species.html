@@ -47,7 +47,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">filter_by_species</span><span class="op">(</span><span class="va">data</span>, <span class="va">species</span>, rm_na <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">filter_by_species</span><span class="op">(</span><span class="va">data</span>, <span class="va">species</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -55,17 +55,11 @@
 
 
 <dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
-<dd><p>a <code>data.frame</code>. Must be the output of the function
-<code><a href="reshape_data.html">reshape_data()</a></code>, i.e. a FORCIS dataset in long format.</p></dd>
+<dd><p>a <code>data.frame</code>. One obtained by <code>read_*_data()</code> functions.</p></dd>
 
 
 <dt id="arg-species">species<a class="anchor" aria-label="anchor" href="#arg-species"></a></dt>
 <dd><p>a <code>character</code> vector listing species of interest.</p></dd>
-
-
-<dt id="arg-rm-na">rm_na<a class="anchor" aria-label="anchor" href="#arg-rm-na"></a></dt>
-<dd><p>a <code>logical</code> value. If <code>FALSE</code> (default), keeps taxa with <code>NA</code>
-counts.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -94,16 +88,36 @@ counts.</p></dd>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2451   77</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Convert data into long format ----</span></span></span>
-<span class="r-in"><span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reshape_data.html">reshape_data</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Dimensions of the data.frame ----</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 137256     23</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Total number of species ----</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">$</span><span class="st">"taxa"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 56</span>
+<span class="r-in"><span><span class="co"># Get species names ----</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="get_species_names.html">get_species_names</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "b_digitata_VT"                 "b_pumilio_VT"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] "b_variabilis_VT"               "c_nitida_VT"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] "d_anfracta_VT"                 "g_adamsi_VT"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "g_bulloides_VT"                "g_calida_VT"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] "g_cavernula_VT"                "g_conglobatus_VT"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "g_conglomerata_VT"             "g_crassaformis_VT"            </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "g_elongatus_VT"                "g_falconensis_VT"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] "g_glutinata_VT"                "g_hexagona_VT"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] "g_hirsuta_VT"                  "g_inflata_VT"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "g_cultrata_VT"                 "g_minuta_VT"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "g_ruber_albus_VT"              "g_ruber_albus_or_elongatus_VT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] "g_ruber_any_VT"                "g_ruber_ruber_VT"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "g_rubescens_VT"                "g_scitula_VT"                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27] "g_siphonifera_VT"              "g_tenellus_VT"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29] "g_theyeri_VT"                  "g_truncatulinoides_VT"        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "g_truncatulinoides_left_VT"    "g_truncatulinoides_right_VT"  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33] "g_tumida_VT"                   "g_ungulata_VT"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [35] "g_uvula_VT"                    "n_vivans_VT"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "h_digitata_VT"                 "h_pelagica_VT"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39] "n_dutertrei_VT"                "n_incompta_VT"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] "n_pachyderma_VT"               "n_pachyderma_incompta_VT"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43] "o_riedeli_VT"                  "o_universa_VT"                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [45] "p_obliquiloculata_VT"          "s_dehiscens_VT"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [47] "t_clarkei_VT"                  "t_fleisheri_VT"               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] "t_humilis_VT"                  "t_iota_VT"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [51] "t_parkerae_VT"                 "t_quinqueloba_VT"             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [53] "t_sacculifer_VT"               "t_sacculifer_no_sac_VT"       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "t_sacculifer_sac_VT"           "UnID_VT"                      </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Select records for three species ----</span></span></span>
 <span class="r-in"><span><span class="va">net_data_sub</span> <span class="op">&lt;-</span> <span class="fu">filter_by_species</span><span class="op">(</span>data    <span class="op">=</span> <span class="va">net_data</span>, </span></span>
@@ -113,11 +127,11 @@ counts.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Dimensions of the data.frame ----</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">net_data_sub</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 7353   23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2451   24</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Total number of species ----</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">net_data_sub</span><span class="op">$</span><span class="st">"taxa"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 3</span>
+<span class="r-in"><span><span class="co"># Get species names ----</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="get_species_names.html">get_species_names</a></span><span class="op">(</span><span class="va">net_data_sub</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "g_elongatus_VT" "g_glutinata_VT" "g_inflata_VT"  </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
