@@ -100,7 +100,7 @@ a specific range (minimum and maximum) within a sampling unit.</li>
 <div class="section level2">
 <h2 id="conversion-functions">Conversion functions<a class="anchor" aria-label="anchor" href="#conversion-functions"></a>
 </h2>
-<p>The functions detailed in this vignette allow to convert counts
+<p>The functions detailed in this vignette allow users to convert counts
 between the following formats <strong>Raw abundance</strong>,
 <strong>Relative abundance</strong> and <strong>Number
 concentration</strong>.</p>
@@ -108,24 +108,24 @@ concentration</strong>.</p>
 <p><strong>NOTE:</strong> FORCIS data from <em>Sediment traps</em> and
 the <em>CPR North</em> are not supported by these functions.</p>
 </blockquote>
-<p>First, let’s import the required package.</p>
+<p>First, let’s attach the required package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frbcesab.github.io/forcis">forcis</a></span><span class="op">)</span></span></code></pre></div>
-<p>Before going any further, we will download the latest version of the
-FORCIS database.</p>
+<p>Before proceeding, let’s download the latest version of the FORCIS
+database.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a data/ folder ----</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Download latest version of the database ----</span></span>
 <span><span class="fu"><a href="../reference/download_forcis_db.html">download_forcis_db</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span>, version <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
-<p>The vignette will use the plankton nets data of the FORCIS database.
+<p>The vignette will use the plankton net data of the FORCIS database.
 Let’s import the latest release of the data.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Import net data ----</span></span>
 <span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_data.html">read_plankton_nets_data</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>NB:</strong> In this vignette, we use a subset of the
-plankton nets data, not the whole dataset.</p>
+plankton net data, not the whole dataset.</p>
 <p>After importing the data, the initial step involves choosing the
 taxonomic level for the analyses, (the different taxonomic levels are
 described in this <a href="https://www.nature.com/articles/s41597-023-02264-2" class="external-link">data
@@ -135,7 +135,7 @@ paper</a>).</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Select taxonomy ----</span></span>
 <span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_taxonomy.html">select_taxonomy</a></span><span class="op">(</span><span class="va">net_data</span>, taxonomy <span class="op">=</span> <span class="st">"VT"</span><span class="op">)</span></span></code></pre></div>
-<p>Once the data contains counts from the same taxonomic level, we can
+<p>Once the data contain counts from the same taxonomic level, we can
 proceed with the conversion functions: <code>compute_*()</code>.</p>
 <p>The functions accept two arguments: the input <code>data</code> and
 the <code>aggregate</code> arguments. If <code>aggregate = TRUE</code>,

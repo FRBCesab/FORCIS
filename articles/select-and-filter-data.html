@@ -78,8 +78,8 @@ vignette shows how to use these functions.</p>
 <p>First, let’s import the required packages.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frbcesab.github.io/forcis">forcis</a></span><span class="op">)</span></span></code></pre></div>
-<p>Before going any further, we will download the latest version of the
-FORCIS database.</p>
+<p>Before proceeding, let’s download the latest version of the FORCIS
+database.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a data/ folder ----</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span>
@@ -114,7 +114,7 @@ function <code><a href="../reference/select_taxonomy.html">select_taxonomy()</a>
 <h2 id="select_columns">
 <code>select_columns()</code><a class="anchor" aria-label="anchor" href="#select_columns"></a>
 </h2>
-<p>Because FORCIS data contains more than 100 columns, the function
+<p>Because FORCIS data contain more than 100 columns, the function
 <code><a href="../reference/select_columns.html">select_columns()</a></code> can be used to lighten the
 <code>data.frame</code> to easily handle it and to speed up some
 computations.</p>
@@ -185,10 +185,10 @@ the Indian ocean.</p>
 <span><span class="co"># Number of filtered records ----</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">net_data_bbox</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 320</span></span></code></pre></div>
-<p>Note that the argument <code>bbox</code> can be an object of class
-<code>bbox</code> (package <code>sf</code>) or a vector of four numeric
-values defining a square bounding box. If a vector of numeric values is
-provided, coordinates must be defined in the system WGS 84
+<p>Note that the argument <code>bbox</code> can be either an object of
+class <code>bbox</code> (package <code>sf</code>) or a vector of four
+numeric values defining a square bounding box. If a vector of numeric
+values is provided, coordinates must be defined in the system WGS 84
 (<code>epsg=4326</code>).</p>
 </div>
 <div class="section level2">
@@ -248,8 +248,8 @@ boundaries of the Indian ocean.</p>
 <h2 id="filter_by_species">
 <code>filter_by_species()</code><a class="anchor" aria-label="anchor" href="#filter_by_species"></a>
 </h2>
-<p>The function <code><a href="../reference/filter_by_species.html">filter_by_species()</a></code> allows to filter FORCIS
-data for one or more species.</p>
+<p>The <code><a href="../reference/filter_by_species.html">filter_by_species()</a></code> function allows users to filter
+FORCIS data for one or more species.</p>
 <p>It takes a <code>data.frame</code> and a vector of species names
 (argument <code>species</code>).</p>
 <p>Let’s subset plankton net data to only keep observations for <em>G.
@@ -271,7 +271,7 @@ glutinata</em> and <em>C. nitida</em>.</p>
 <h2 id="reshape_data">
 <code>reshape_data()</code><a class="anchor" aria-label="anchor" href="#reshape_data"></a>
 </h2>
-<p>The function <code><a href="../reference/reshape_data.html">reshape_data()</a></code> converts FORCIS data into a
+<p>The <code><a href="../reference/reshape_data.html">reshape_data()</a></code> function converts FORCIS data into a
 long format.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Convert to long format ----</span></span>

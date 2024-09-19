@@ -69,9 +69,9 @@
 
     
     
-<p>The package <code>forcis</code> provides <a href="https://frbcesab.github.io/forcis/reference/index.html#visualization-tools">a
-lot of functions</a> to visualize FORCIS data. This vignette shows how
-to use and customize these functions.</p>
+<p>The package <code>forcis</code> provides <a href="https://frbcesab.github.io/forcis/reference/index.html#visualization-tools">numerous
+functions</a> to visualize FORCIS data. This vignette shows how to use
+and customize these functions.</p>
 <div class="section level2">
 <h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
 </h2>
@@ -79,21 +79,21 @@ to use and customize these functions.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://frbcesab.github.io/forcis">forcis</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
-<p>Before going any further, we will download the latest version of the
-FORCIS database.</p>
+<p>Before proceeding, let’s download the latest version of the FORCIS
+database.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a data/ folder ----</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Download latest version of the database ----</span></span>
 <span><span class="fu"><a href="../reference/download_forcis_db.html">download_forcis_db</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span>, version <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
-<p>The vignette will use the plankton nets data of the FORCIS database.
+<p>The vignette will use the plankton net data of the FORCIS database.
 Let’s import the latest release of the data.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Import net data ----</span></span>
 <span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_data.html">read_plankton_nets_data</a></span><span class="op">(</span>path <span class="op">=</span> <span class="st">"data"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>NB:</strong> In this vignette, we use a subset of the
-plankton nets data, not the whole dataset.</p>
+plankton net data, not the whole dataset.</p>
 </div>
 <div class="section level2">
 <h2 id="geom_basemap">
