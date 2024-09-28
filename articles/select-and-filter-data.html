@@ -111,11 +111,11 @@ function <code><a href="../reference/select_taxonomy.html">select_taxonomy()</a>
 <span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_taxonomy.html">select_taxonomy</a></span><span class="op">(</span><span class="va">net_data</span>, taxonomy <span class="op">=</span> <span class="st">"VT"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="select_columns">
-<code>select_columns()</code><a class="anchor" aria-label="anchor" href="#select_columns"></a>
+<h2 id="select_forcis_columns">
+<code>select_forcis_columns()</code><a class="anchor" aria-label="anchor" href="#select_forcis_columns"></a>
 </h2>
 <p>Because FORCIS data contain more than 100 columns, the function
-<code><a href="../reference/select_columns.html">select_columns()</a></code> can be used to lighten the
+<code><a href="../reference/select_forcis_columns.html">select_forcis_columns()</a></code> can be used to lighten the
 <code>data.frame</code> to easily handle it and to speed up some
 computations.</p>
 <p>By default, only required columns listed in
@@ -123,7 +123,7 @@ computations.</p>
 kept.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Select taxonomy ----</span></span>
-<span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_columns.html">select_columns</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_forcis_columns.html">select_forcis_columns</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 <p>But you can also use the argument <code>cols</code> to keep
 additional columns.</p>
 </div>
@@ -257,7 +257,8 @@ glutinata</em> and <em>C. nitida</em>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Filter by species ----</span></span>
 <span><span class="va">glutinata_nitida</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/filter_by_species.html">filter_by_species</a></span><span class="op">(</span><span class="va">net_data</span>, </span>
-<span>                                      species <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"g_glutinata_VT"</span>, <span class="st">"c_nitida_VT"</span><span class="op">)</span><span class="op">)</span></span>
+<span>                                      species <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"g_glutinata_VT"</span>, </span>
+<span>                                                  <span class="st">"c_nitida_VT"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Dimensions of original data ----</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span>
@@ -268,14 +269,14 @@ glutinata</em> and <em>C. nitida</em>.</p>
 <span><span class="co">#&gt; [1] 2451   23</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="reshape_data">
-<code>reshape_data()</code><a class="anchor" aria-label="anchor" href="#reshape_data"></a>
+<h2 id="convert_to_long_format">
+<code>convert_to_long_format()</code><a class="anchor" aria-label="anchor" href="#convert_to_long_format"></a>
 </h2>
-<p>The <code><a href="../reference/reshape_data.html">reshape_data()</a></code> function converts FORCIS data into a
-long format.</p>
+<p>The <code><a href="../reference/convert_to_long_format.html">convert_to_long_format()</a></code> function converts FORCIS
+data into a long format.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Convert to long format ----</span></span>
-<span><span class="va">net_data_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/reshape_data.html">reshape_data</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span>
+<span><span class="va">net_data_long</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/convert_to_long_format.html">convert_to_long_format</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Dimensions of original data ----</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span>

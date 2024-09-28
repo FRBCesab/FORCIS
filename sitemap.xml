@@ -14,6 +14,7 @@
 <url><loc>https://frbcesab.github.io/forcis/index.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/news/index.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/computations.html</loc></url>
+<url><loc>https://frbcesab.github.io/forcis/reference/convert_to_long_format.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/data_to_sf.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/download_forcis_db.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/filter_by_bbox.html</loc></url>
@@ -29,7 +30,7 @@
 <url><loc>https://frbcesab.github.io/forcis/reference/get_ocean_names.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/get_required_columns.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/get_species_names.html</loc></url>
-<url><loc>https://frbcesab.github.io/forcis/reference/get_version_info.html</loc></url>
+<url><loc>https://frbcesab.github.io/forcis/reference/get_version_metadata.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/ggmap_data.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/index.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/plot_record_by_depth.html</loc></url>
@@ -37,8 +38,7 @@
 <url><loc>https://frbcesab.github.io/forcis/reference/plot_record_by_season.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/plot_record_by_year.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/read_data.html</loc></url>
-<url><loc>https://frbcesab.github.io/forcis/reference/reshape_data.html</loc></url>
-<url><loc>https://frbcesab.github.io/forcis/reference/select_columns.html</loc></url>
+<url><loc>https://frbcesab.github.io/forcis/reference/select_forcis_columns.html</loc></url>
 <url><loc>https://frbcesab.github.io/forcis/reference/select_taxonomy.html</loc></url>
 </urlset>
 
