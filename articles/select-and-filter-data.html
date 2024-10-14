@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">forcis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Select, reshape, and filter data</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/0.1.0/vignettes/select-and-filter-data.Rmd" class="external-link"><code>vignettes/select-and-filter-data.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/master/vignettes/select-and-filter-data.Rmd" class="external-link"><code>vignettes/select-and-filter-data.Rmd</code></a></small>
       <div class="d-none name"><code>select-and-filter-data.Rmd</code></div>
     </div>
 
@@ -95,9 +95,11 @@ Let’s import the latest release of the data.</p>
 plankton nets data, not the whole dataset.</p>
 </div>
 <div class="section level2">
-<h2 id="select_taxonomy">
-<code>select_taxonomy()</code><a class="anchor" aria-label="anchor" href="#select_taxonomy"></a>
+<h2 id="selecting-columns">Selecting columns<a class="anchor" aria-label="anchor" href="#selecting-columns"></a>
 </h2>
+<div class="section level3">
+<h3 id="select-a-taxonomy">Select a taxonomy<a class="anchor" aria-label="anchor" href="#select-a-taxonomy"></a>
+</h3>
 <p>The FORCIS database provides three different taxonomies:
 <code>LT</code> (lumped taxonomy), <code>VT</code> (validated taxonomy)
 and <code>OT</code> (original taxonomy). See the <a href="https://doi.org/10.1038/s41597-023-02264-2" class="external-link">associated data
@@ -110,27 +112,30 @@ function <code><a href="../reference/select_taxonomy.html">select_taxonomy()</a>
 <code class="sourceCode R"><span><span class="co"># Select taxonomy ----</span></span>
 <span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_taxonomy.html">select_taxonomy</a></span><span class="op">(</span><span class="va">net_data</span>, taxonomy <span class="op">=</span> <span class="st">"VT"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="select_forcis_columns">
-<code>select_forcis_columns()</code><a class="anchor" aria-label="anchor" href="#select_forcis_columns"></a>
-</h2>
+<div class="section level3">
+<h3 id="select-required-columns">Select required columns<a class="anchor" aria-label="anchor" href="#select-required-columns"></a>
+</h3>
 <p>Because FORCIS data contain more than 100 columns, the function
 <code><a href="../reference/select_forcis_columns.html">select_forcis_columns()</a></code> can be used to lighten the
 <code>data.frame</code> to easily handle it and to speed up some
 computations.</p>
 <p>By default, only required columns listed in
-<code><a href="../reference/get_required_columns.html">get_required_columns()</a></code> and species columns will be
-kept.</p>
+<code><a href="../reference/get_required_columns.html">get_required_columns()</a></code> (required by some functions of the
+package like <code>compute_*()</code> and <code>plot_*()</code>) and
+species columns will be kept.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Select taxonomy ----</span></span>
 <span><span class="va">net_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_forcis_columns.html">select_forcis_columns</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 <p>But you can also use the argument <code>cols</code> to keep
 additional columns.</p>
 </div>
+</div>
 <div class="section level2">
-<h2 id="filter_by_month">
-<code>filter_by_month()</code><a class="anchor" aria-label="anchor" href="#filter_by_month"></a>
+<h2 id="filtering-rows">Filtering rows<a class="anchor" aria-label="anchor" href="#filtering-rows"></a>
 </h2>
+<div class="section level3">
+<h3 id="filter-by-month-of-data-collection">Filter by month of data collection<a class="anchor" aria-label="anchor" href="#filter-by-month-of-data-collection"></a>
+</h3>
 <p>The <code><a href="../reference/filter_by_month.html">filter_by_month()</a></code> function filters observations
 based on the <strong>month of sampling</strong>. It requires two
 arguments: the data and a numeric vector with values between 1 and
@@ -147,10 +152,9 @@ arguments: the data and a numeric vector with values between 1 and
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">net_july_aug</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 516</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="filter_by_year">
-<code>filter_by_year()</code><a class="anchor" aria-label="anchor" href="#filter_by_year"></a>
-</h2>
+<div class="section level3">
+<h3 id="filter-by-year-of-data-collection">Filter by year of data collection<a class="anchor" aria-label="anchor" href="#filter-by-year-of-data-collection"></a>
+</h3>
 <p>The <code><a href="../reference/filter_by_year.html">filter_by_year()</a></code> function filters observations based
 on the <strong>year of sampling</strong>. It requires two arguments: the
 data and a numeric vector with the years of interest.</p>
@@ -166,10 +170,9 @@ data and a numeric vector with the years of interest.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">net_90_20</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 2283</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="filter_by_bbox">
-<code>filter_by_bbox()</code><a class="anchor" aria-label="anchor" href="#filter_by_bbox"></a>
-</h2>
+<div class="section level3">
+<h3 id="filter-by-bounding-box">Filter by bounding box<a class="anchor" aria-label="anchor" href="#filter-by-bounding-box"></a>
+</h3>
 <p>The function <code><a href="../reference/filter_by_bbox.html">filter_by_bbox()</a></code> can be used to filter
 FORCIS data by a spatial bounding box (argument <code>bbox</code>).</p>
 <p>Let’s filter the plankton net data by a spatial rectangle located in
@@ -191,10 +194,9 @@ numeric values defining a square bounding box. If a vector of numeric
 values is provided, coordinates must be defined in the system WGS 84
 (<code>epsg=4326</code>).</p>
 </div>
-<div class="section level2">
-<h2 id="filter_by_ocean">
-<code>filter_by_ocean()</code><a class="anchor" aria-label="anchor" href="#filter_by_ocean"></a>
-</h2>
+<div class="section level3">
+<h3 id="filter-by-ocean">Filter by ocean<a class="anchor" aria-label="anchor" href="#filter-by-ocean"></a>
+</h3>
 <p>The function <code><a href="../reference/filter_by_ocean.html">filter_by_ocean()</a></code> can be used to filter
 FORCIS data by one or several oceans (argument <code>ocean</code>).</p>
 <p>Let’s filter the plankton net data located in the Indian ocean.</p>
@@ -219,10 +221,9 @@ in this package).</p>
 <span><span class="co">#&gt; [4] "North Atlantic Ocean" "North Pacific Ocean"  "South Atlantic Ocean"</span></span>
 <span><span class="co">#&gt; [7] "South Pacific Ocean"  "Southern Ocean"</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="filter_by_polygon">
-<code>filter_by_polygon()</code><a class="anchor" aria-label="anchor" href="#filter_by_polygon"></a>
-</h2>
+<div class="section level3">
+<h3 id="filter-by-spatial-polygon">Filter by spatial polygon<a class="anchor" aria-label="anchor" href="#filter-by-spatial-polygon"></a>
+</h3>
 <p>The function <code><a href="../reference/filter_by_polygon.html">filter_by_polygon()</a></code> can be used to filter
 FORCIS data a spatial polygon (argument <code>polygon</code>).</p>
 <p>Let’s filter the plankton net data by a spatial polygon defining
@@ -244,10 +245,9 @@ boundaries of the Indian ocean.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">net_data_poly</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1640</span></span></code></pre></div>
 </div>
-<div class="section level2">
-<h2 id="filter_by_species">
-<code>filter_by_species()</code><a class="anchor" aria-label="anchor" href="#filter_by_species"></a>
-</h2>
+<div class="section level3">
+<h3 id="filter-by-species">Filter by species<a class="anchor" aria-label="anchor" href="#filter-by-species"></a>
+</h3>
 <p>The <code><a href="../reference/filter_by_species.html">filter_by_species()</a></code> function allows users to filter
 FORCIS data for one or more species.</p>
 <p>It takes a <code>data.frame</code> and a vector of species names
@@ -268,10 +268,13 @@ glutinata</em> and <em>C. nitida</em>.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">glutinata_nitida</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 2451   23</span></span></code></pre></div>
 </div>
+</div>
 <div class="section level2">
-<h2 id="convert_to_long_format">
-<code>convert_to_long_format()</code><a class="anchor" aria-label="anchor" href="#convert_to_long_format"></a>
+<h2 id="reshaping">Reshaping<a class="anchor" aria-label="anchor" href="#reshaping"></a>
 </h2>
+<div class="section level3">
+<h3 id="convert-to-long-format">Convert to long format<a class="anchor" aria-label="anchor" href="#convert-to-long-format"></a>
+</h3>
 <p>The <code><a href="../reference/convert_to_long_format.html">convert_to_long_format()</a></code> function converts FORCIS
 data into a long format.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -314,6 +317,7 @@ data into a long format.</p>
 <span><span class="co">#&gt; [22] "taxa"                                     </span></span>
 <span><span class="co">#&gt; [23] "counts"</span></span></code></pre></div>
 </div>
+</div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
@@ -321,7 +325,7 @@ data into a long format.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Nicolas Casajus, Mattia Greco, Sonia Chaabane, Xavier Giraud, Thibault de Garidel-Thoron.</p>
+  <p>Developed by Nicolas Casajus, Mattia Greco, Sonia Chaabane, Xavier Giraud, Thibault de Garidel-Thoron, FRB-CESAB.</p>
 </div>
 
 <div class="pkgdown-footer-right">

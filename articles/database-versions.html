@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">forcis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Database versions</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/0.1.0/vignettes/database-versions.Rmd" class="external-link"><code>vignettes/database-versions.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/master/vignettes/database-versions.Rmd" class="external-link"><code>vignettes/database-versions.Rmd</code></a></small>
       <div class="d-none name"><code>database-versions.Rmd</code></div>
     </div>
 
@@ -90,6 +90,11 @@ the latest version of the database might be to add this line at the
 beginning of the script:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/download_forcis_db.html">download_forcis_db</a></span><span class="op">(</span>version <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<p>By setting <code>version = NULL</code>, the function
+<code><a href="../reference/download_forcis_db.html">download_forcis_db()</a></code> will download the latest version of
+the FORCIS database from Zenodo (if not already downloaded). If no newer
+version has been released on Zenodo and if the latest version of the
+database has already been downloaded, this step will be ignored.</p>
 <p>Note that the FORCIS database is saved in
 <code>forcis-db/version-99/</code>, where <code>99</code> is the label
 of the version. If you regularly download the new versions, the content
@@ -135,7 +140,7 @@ version</strong> of the database.</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Nicolas Casajus, Mattia Greco, Sonia Chaabane, Xavier Giraud, Thibault de Garidel-Thoron.</p>
+  <p>Developed by Nicolas Casajus, Mattia Greco, Sonia Chaabane, Xavier Giraud, Thibault de Garidel-Thoron, FRB-CESAB.</p>
 </div>
 
 <div class="pkgdown-footer-right">

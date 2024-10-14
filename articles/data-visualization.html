@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">forcis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Data visualization</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/0.1.0/vignettes/data-visualization.Rmd" class="external-link"><code>vignettes/data-visualization.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/FRBCesab/forcis/blob/master/vignettes/data-visualization.Rmd" class="external-link"><code>vignettes/data-visualization.Rmd</code></a></small>
       <div class="d-none name"><code>data-visualization.Rmd</code></div>
     </div>
 
@@ -96,9 +96,11 @@ Let’s import the latest release of the data.</p>
 plankton net data, not the whole dataset.</p>
 </div>
 <div class="section level2">
-<h2 id="geom_basemap">
-<code>geom_basemap()</code><a class="anchor" aria-label="anchor" href="#geom_basemap"></a>
+<h2 id="spatial-visualization">Spatial visualization<a class="anchor" aria-label="anchor" href="#spatial-visualization"></a>
 </h2>
+<div class="section level3">
+<h3 id="creating-a-world-map">Creating a world map<a class="anchor" aria-label="anchor" href="#creating-a-world-map"></a>
+</h3>
 <p>The function <code><a href="../reference/geom_basemap.html">geom_basemap()</a></code> can be used to easily add
 World countries, oceans and bounding box to a <code>ggplot2</code>
 object.</p>
@@ -111,10 +113,9 @@ object.</p>
 are defined in the <a href="https://epsg.io/54030" class="external-link">Robinson
 projection</a>.</p>
 </div>
-<div class="section level2">
-<h2 id="ggmap_data">
-<code>ggmap_data()</code><a class="anchor" aria-label="anchor" href="#ggmap_data"></a>
-</h2>
+<div class="section level3">
+<h3 id="mapping-forcis-data">Mapping FORCIS data<a class="anchor" aria-label="anchor" href="#mapping-forcis-data"></a>
+</h3>
 <p>The function <code><a href="../reference/ggmap_data.html">ggmap_data()</a></code> can be used to plot FORCIS
 data on a World map. Let’s map the plankton nets data.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -159,10 +160,13 @@ the package <code>ggplot2</code>.</p>
 <span>       scale    <span class="op">=</span> <span class="fl">1.5</span>,</span>
 <span>       bg       <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div>
 </div>
+</div>
 <div class="section level2">
-<h2 id="plot_record_by_year">
-<code>plot_record_by_year()</code><a class="anchor" aria-label="anchor" href="#plot_record_by_year"></a>
+<h2 id="temporal-visualization">Temporal visualization<a class="anchor" aria-label="anchor" href="#temporal-visualization"></a>
 </h2>
+<div class="section level3">
+<h3 id="plot-data-by-year-of-sampling">Plot data by year of sampling<a class="anchor" aria-label="anchor" href="#plot-data-by-year-of-sampling"></a>
+</h3>
 <p>The function <code><a href="../reference/plot_record_by_year.html">plot_record_by_year()</a></code> plots the number of
 records (y-axis) by year (x-axis).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -170,10 +174,9 @@ records (y-axis) by year (x-axis).</p>
 <span><span class="fu"><a href="../reference/plot_record_by_year.html">plot_record_by_year</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="data-visualization_files/figure-html/plot-record-by-year-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
-<div class="section level2">
-<h2 id="plot_record_by_month">
-<code>plot_record_by_month()</code><a class="anchor" aria-label="anchor" href="#plot_record_by_month"></a>
-</h2>
+<div class="section level3">
+<h3 id="plot-data-by-month-of-sampling">Plot data by month of sampling<a class="anchor" aria-label="anchor" href="#plot-data-by-month-of-sampling"></a>
+</h3>
 <p>The function <code><a href="../reference/plot_record_by_month.html">plot_record_by_month()</a></code> plots the number of
 records (y-axis) by month (x-axis).</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -181,10 +184,9 @@ records (y-axis) by month (x-axis).</p>
 <span><span class="fu"><a href="../reference/plot_record_by_month.html">plot_record_by_month</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="data-visualization_files/figure-html/plot-record-by-month-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
-<div class="section level2">
-<h2 id="plot_record_by_season">
-<code>plot_record_by_season()</code><a class="anchor" aria-label="anchor" href="#plot_record_by_season"></a>
-</h2>
+<div class="section level3">
+<h3 id="plot-data-by-season">Plot data by season<a class="anchor" aria-label="anchor" href="#plot-data-by-season"></a>
+</h3>
 <p>The function <code><a href="../reference/plot_record_by_season.html">plot_record_by_season()</a></code> plots the number of
 records (y-axis) by season (x-axis).</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
@@ -192,16 +194,20 @@ records (y-axis) by season (x-axis).</p>
 <span><span class="fu"><a href="../reference/plot_record_by_season.html">plot_record_by_season</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="data-visualization_files/figure-html/plot-record-by-season-1.png" width="80%" style="display: block; margin: auto;"></p>
 </div>
+</div>
 <div class="section level2">
-<h2 id="plot_record_by_depth">
-<code>plot_record_by_depth()</code><a class="anchor" aria-label="anchor" href="#plot_record_by_depth"></a>
+<h2 id="vertical-visualization">Vertical visualization<a class="anchor" aria-label="anchor" href="#vertical-visualization"></a>
 </h2>
+<div class="section level3">
+<h3 id="plot-data-by-depth-of-sampling">Plot data by depth of sampling<a class="anchor" aria-label="anchor" href="#plot-data-by-depth-of-sampling"></a>
+</h3>
 <p>The function <code><a href="../reference/plot_record_by_depth.html">plot_record_by_depth()</a></code> plots the number of
 records (x-axis) by depth intervals (y-axis).</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Plot number of records by depth ----</span></span>
 <span><span class="fu"><a href="../reference/plot_record_by_depth.html">plot_record_by_depth</a></span><span class="op">(</span><span class="va">net_data</span><span class="op">)</span></span></code></pre></div>
 <p><img src="data-visualization_files/figure-html/plot-record-by-depth-1.png" width="80%" style="display: block; margin: auto;"></p>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -210,7 +216,7 @@ records (x-axis) by depth intervals (y-axis).</p>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Nicolas Casajus, Mattia Greco, Sonia Chaabane, Xavier Giraud, Thibault de Garidel-Thoron.</p>
+  <p>Developed by Nicolas Casajus, Mattia Greco, Sonia Chaabane, Xavier Giraud, Thibault de Garidel-Thoron, FRB-CESAB.</p>
 </div>
 
 <div class="pkgdown-footer-right">
